@@ -15,7 +15,7 @@ namespace emlakCenter.Controllers
 
         public ActionResult About()
         {
-            ViewBag.Message = "Your application description page.";
+            ViewBag.Message = "Ysfdhjlşwerwe ption page.";
 
             return View();
         }
