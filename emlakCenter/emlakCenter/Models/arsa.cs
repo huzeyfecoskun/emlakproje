@@ -69,5 +69,10 @@ namespace emlakCenter.Models
     {
         public int Id { get; set; }
         public string ilanSahibi_adi { get; set; }
+        public string ilanSahibi_soyadi { get; set; }
+        public string ilanSahibi_tel { get; set; }
+        public string ilanSahibi_gsm { get; set; }
+        public string ilanSahibi_email { get; set; }
+
     }
 }
