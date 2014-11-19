@@ -18,14 +18,26 @@ namespace emlakCenter.Models
         public int fiyat { get; set; }
 
         public int tapuDurumu { get; set; }
+        public string arsaTipi{ get; set; }
+        public string ilgiliBelediye { get; set; }
+        public string parsel { get; set; }
 
         
 
         public bool hasResim { get; set; }
         public bool hasHarita { get; set; }
-        public bool hasVideo { get; set; }
+        public bool hasVideo { get; set; }  
+    }
 
-        
+    public class arsaMedya
+    {
+        public int id { get; set; }
+        public int arsa_id { get; set; }
+        public string resim { get; set; }
+        public string harita { get; set; }
+        public string video { get; set; }
+
+
     }
 
     public class ilan
