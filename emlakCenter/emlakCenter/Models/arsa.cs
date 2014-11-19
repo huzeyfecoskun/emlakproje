@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.ComponentModel.DataAnnotations;
 using System.Linq;
 using System.Web;
 
@@ -9,17 +10,34 @@ namespace emlakCenter.Models
     {
         public int Id { get; set; }
         //KONUM
+        [Required]
+        [Display(Name = "İl")]
         public int il { get; set; }
+
+        [Required]
+        [Display(Name="İlçe")]
         public int ilce { get; set; }
+
+        [Display(Name = "Semt")]
+        [Required]
         public int semt { get; set; }
 
+        [Display(Name = "Metrekare")]
         public int metrekare { get; set; }
 
+        [Display(Name = "Fiyat")]
         public int fiyat { get; set; }
 
+        [Display(Name = "Tapu Durumu")]
         public int tapuDurumu { get; set; }
+
+        [Display(Name = "Arsa Tipi")]
         public string arsaTipi{ get; set; }
+
+        [Display(Name = "İlgili Belediye")]
         public string ilgiliBelediye { get; set; }
+
+        [Display(Name = "Parsel")]
         public string parsel { get; set; }
 
         
@@ -33,6 +51,7 @@ namespace emlakCenter.Models
     {
         public int id { get; set; }
         public int arsa_id { get; set; }
+
         public string resim { get; set; }
         public string harita { get; set; }
         public string video { get; set; }
@@ -44,16 +63,28 @@ namespace emlakCenter.Models
     {
         public int id { get; set; }
 
+        [Display(Name = "İlan Numarası")]
         public string ilanNo { get; set; }
+
+        [Display(Name = "İlan tarihi")]
+        [DataType(DataType.Date,ErrorMessage="Lütfen Geçerli Bir Tarih Giriniz")]
         public DateTime ilantarihi { get; set; }
+
+        [Display(Name = "İlan Sahibi")]
         public int ilanSahibi { get; set; }
+
+        [Display(Name = "İlan Türü")]
         public int ilanTuru { get; set; } // 1 => arsa
+
+        [Display(Name = "Takas")]
         public bool takasDurum { get; set; } // 1=> takas yapılabilir
        
     }
     public class il
     {
         public int Id { get; set; }
+
+        [Display(Name = "İl")]
         public string il_adi { get; set; }
     }
 
@@ -61,6 +92,8 @@ namespace emlakCenter.Models
     {
         public int Id { get; set; }
         public int il_id { get; set; }
+
+        [Display(Name = "İlçe")]
         public string ilce_adi { get; set; }
     }
 
@@ -68,22 +101,36 @@ namespace emlakCenter.Models
     {
         public int Id { get; set; }
         public int ilce_id { get; set; }
+
+        [Display(Name = "Semt")]
         public string semt_adi { get; set; }
     }
 
     public class tapuDurumu
     {
         public int Id { get; set; }
+
+        [Display(Name = "Tapu Durumu")]
         public string durum { get; set; }
     }
 
     public class ilanSahibi
     {
         public int Id { get; set; }
+
+        [Display(Name = "İlan Sahibinin Adı")]
         public string ilanSahibi_adi { get; set; }
+
+        [Display(Name = "İlan Sahibinin Soyadı")]
         public string ilanSahibi_soyadi { get; set; }
+
+        [Display(Name = "İlan Sahibinin Telefon Numarası")]
         public string ilanSahibi_tel { get; set; }
+
+        [Display(Name = "İlan Sahibinin GSM Numarası")]
         public string ilanSahibi_gsm { get; set; }
+
+        [Display(Name = "İlan Sahibinin Email Adresi")]
         public string ilanSahibi_email { get; set; }
 
     }
