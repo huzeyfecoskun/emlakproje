@@ -15,7 +15,7 @@ namespace emlakCenter.Models
         public int il { get; set; }
 
         [Required]
-        [Display(Name="İlçe")]
+        [Display(Name = "İlçe")]
         public int ilce { get; set; }
 
         [Display(Name = "Semt")]
@@ -23,16 +23,20 @@ namespace emlakCenter.Models
         public int semt { get; set; }
 
         [Display(Name = "Metrekare")]
+        [Required]
         public int metrekare { get; set; }
 
         [Display(Name = "Fiyat")]
+        [Required]
         public int fiyat { get; set; }
 
         [Display(Name = "Tapu Durumu")]
+        [Required]
         public int tapuDurumu { get; set; }
 
         [Display(Name = "Arsa Tipi")]
-        public string arsaTipi{ get; set; }
+        [Required]
+        public string arsaTipi { get; set; }
 
         [Display(Name = "İlgili Belediye")]
         public string ilgiliBelediye { get; set; }
@@ -40,11 +44,11 @@ namespace emlakCenter.Models
         [Display(Name = "Parsel")]
         public string parsel { get; set; }
 
-        
+
 
         public bool hasResim { get; set; }
         public bool hasHarita { get; set; }
-        public bool hasVideo { get; set; }  
+        public bool hasVideo { get; set; }
     }
 
     public class arsaMedya
@@ -67,18 +71,19 @@ namespace emlakCenter.Models
         public string ilanNo { get; set; }
 
         [Display(Name = "İlan tarihi")]
-        [DataType(DataType.Date,ErrorMessage="Lütfen Geçerli Bir Tarih Giriniz")]
+        [DataType(DataType.Date, ErrorMessage = "Lütfen Geçerli Bir Tarih Giriniz")]
         public DateTime ilantarihi { get; set; }
 
         [Display(Name = "İlan Sahibi")]
         public int ilanSahibi { get; set; }
 
         [Display(Name = "İlan Türü")]
+        [Required]
         public int ilanTuru { get; set; } // 1 => arsa
 
         [Display(Name = "Takas")]
         public bool takasDurum { get; set; } // 1=> takas yapılabilir
-       
+
     }
     public class il
     {
@@ -119,19 +124,25 @@ namespace emlakCenter.Models
         public int Id { get; set; }
 
         [Display(Name = "İlan Sahibinin Adı")]
+        [Required]
         public string ilanSahibi_adi { get; set; }
 
         [Display(Name = "İlan Sahibinin Soyadı")]
+        [Required]
         public string ilanSahibi_soyadi { get; set; }
 
         [Display(Name = "İlan Sahibinin Telefon Numarası")]
+        [Required]
         public string ilanSahibi_tel { get; set; }
 
         [Display(Name = "İlan Sahibinin GSM Numarası")]
+        [Required]
         public string ilanSahibi_gsm { get; set; }
 
         [Display(Name = "İlan Sahibinin Email Adresi")]
+        [Required]
         public string ilanSahibi_email { get; set; }
 
+        public int ilanSahibi_uyelikTipi { get; set; }
     }
 }
