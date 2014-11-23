@@ -145,4 +145,11 @@ namespace emlakCenter.Models
 
         public int ilanSahibi_uyelikTipi { get; set; }
     }
+
+    public class uyelikTipi
+    {
+        public int id { get; set; }
+
+        public string uyelikTipi_isim { get; set; }
+    }
 }
