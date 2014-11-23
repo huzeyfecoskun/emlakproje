@@ -33,15 +33,26 @@
     padding: 10px;
     text-align: right;
     padding-top: 20px;
-    padding-right:0;
+    padding-right: 0;
 }
-.e-left{
-    width:220px;
-    padding:10px;
-    float:left;
+
+.e-left {
+    width: 220px;
+    padding: 10px;
+    float: left;
 }
-.e-right{
-    width:720px;
-    padding:10px;
-    float:left;
+
+    .e-left select {
+        margin-bottom: 3px;
+    }
+
+.e-right {
+    width: 720px;
+    padding: 10px;
+    float: left;
+}
+
+.metrekare {
+    width: 45%;
+    float: left;
 }

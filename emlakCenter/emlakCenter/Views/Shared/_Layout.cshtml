@@ -36,14 +36,7 @@
         </div>
     </div>
     <div class="e-container clearfix">
-        <div class="e-left">
-            @Html.Partial("_eLeft")                    
-        </div>
-
-        <div class="e-right" id="e-right">
-            @RenderBody()
-        </div>
-
+        @RenderBody()
     </div>
 
     @Scripts.Render("~/bundles/jquery")
