@@ -3,42 +3,54 @@
 <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>@ViewBag.Title - My ASP.NET Application</title>
+    <title>@ViewBag.Title</title>
     @Styles.Render("~/Content/css")
     @Scripts.Render("~/bundles/modernizr")
 
 </head>
 <body>
-    <div class="navbar navbar-inverse navbar-fixed-top">
-        <div class="container">
-            <div class="navbar-header">
-                <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
-                    <span class="icon-bar"></span>
-                    <span class="icon-bar"></span>
-                    <span class="icon-bar"></span>
-                </button>
-                @Html.ActionLink("Application name", "Index", "Home", new { area = "" }, new { @class = "navbar-brand" })
+    <div id="e-nav">
+        <div class="e-container">
+            <div class="e-logo">
+                <a href="#">
+                    <img src="~/Content/img/e-logo.png" />
+                </a>
             </div>
-            <div class="navbar-collapse collapse">
-                <ul class="nav navbar-nav">
-                    <li>@Html.ActionLink("Home", "Index", "Home")</li>
-                    <li>@Html.ActionLink("About", "About", "Home")</li>
-                    <li>@Html.ActionLink("Contact", "Contact", "Home")</li>
+            <div class="e-ara">
+                <div class="input-group">
+                    <input type="text" class="form-control" placeholder="Ara">
+                    <span class="input-group-btn">
+                        <button class="btn btn-primary" type="button">Ara!</button>
+                    </span>
+                </div>
+            </div>
+            <div class="e-iletisim">
+                <ul class="list-unstyled">
+                    <li>
+                        <span class="glyphicon glyphicon-phone-alt"></span>
+                        0 555 555 55 55
+                    </li>
+                    <li><span class="glyphicon glyphicon-envelope"></span> admin@emlakcenter.com</li>
                 </ul>
-                @Html.Partial("_LoginPartial")
             </div>
         </div>
     </div>
-    <div class="container body-content">
-        @RenderBody()
-        <hr />
-        <footer>
-            <p>&copy; @DateTime.Now.Year - YBUBİLTEK</p>
-        </footer>
+    <div class="e-container clearfix">
+        <div class="e-left">
+                        @Html.RenderPartial("_eLeft")
+                        
+        </div>
+
+        <div class="e-right">
+            @RenderBody()
+        </div>
+
     </div>
 
     @Scripts.Render("~/bundles/jquery")
     @Scripts.Render("~/bundles/bootstrap")
+    @Scripts.Render("~/bundles/unob")
+    @Scripts.Render("~/bundles/jqueryeval")
     @RenderSection("scripts", required: false)
 </body>
 </html>
