@@ -37,11 +37,10 @@
     </div>
     <div class="e-container clearfix">
         <div class="e-left">
-                        @Html.RenderPartial("_eLeft")
-                        
+            @Html.Partial("_eLeft")                    
         </div>
 
-        <div class="e-right">
+        <div class="e-right" id="e-right">
             @RenderBody()
         </div>
 
