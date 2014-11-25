@@ -5,6 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>@ViewBag.Title</title>
     @Styles.Render("~/Content/css")
+    @Styles.Render("~/Content/date")
     @Scripts.Render("~/bundles/modernizr")
 
 </head>
@@ -43,6 +44,13 @@
     @Scripts.Render("~/bundles/bootstrap")
     @Scripts.Render("~/bundles/unob")
     @Scripts.Render("~/bundles/jqueryeval")
+    @Scripts.Render("~/bundles/date")
     @RenderSection("scripts", required: false)
+
+    <script type="text/javascript">
+                        $(function () {
+                            $('.dp').datepicker();;
+                        });
+    </script>
 </body>
 </html>
