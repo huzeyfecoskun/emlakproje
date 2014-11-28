@@ -8,13 +8,13 @@ namespace emlakCenter.Models
 {
     public class systemDB : DbContext
     {
-        //public systemDB()
-        //    : base("")
-        //{
-
-        //}
+        public systemDB()
+            : base("name=DefaultConnection")
+        {
+        }
 
         public DbSet<arsaMedya> ArsaMedya { get; set; }
-
+        public DbSet<il> iller { get; set; }
+        public DbSet<ilce> ilceler { get; set; }
     }
 }

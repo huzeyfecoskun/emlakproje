@@ -3,14 +3,17 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Web;
 using System.Web.Mvc;
+using emlakCenter.Models;
 
 namespace emlakCenter.Controllers
 {
     public class HomeController : Controller
     {
+        private systemDB _db = new systemDB();
+
         public ActionResult Index()
         {
-            return View();
+            return View(_db.iller.ToList());
         }
 
         public ActionResult About()
@@ -25,6 +28,11 @@ namespace emlakCenter.Controllers
             ViewBag.Message = "Your contact page.";
 
             return View();
+        }
+
+        public ActionResult Data()
+        {
+            return View(_db.iller.ToList());
         }
     }
 }
