@@ -3,6 +3,7 @@
     $("#ilSecimi").change(function () {
         $.get("http://localhost/emlakCenter/home/getIlce", { id: $(this).val() }, function (data) {
             var ilceler = $.parseJSON(data);
+            $("#semtSecimi").html("<option selected>Semt Seçiniz</option>");
             $("#ilceSecimi").html("");
             $("#ilceSecimi").append("<option>İlçe Seçiniz</option>");
             for(var i = 0 ; i<ilceler.length ; i++)

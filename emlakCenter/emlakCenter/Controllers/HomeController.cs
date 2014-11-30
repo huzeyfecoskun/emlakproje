@@ -17,9 +17,9 @@ namespace emlakCenter.Controllers
             return View();
         }
 
-    
-        public ActionResult GetIlce(int id)
+        public ActionResult GetIlce(int? id)
         {
+            if (id == null) id = 1;
             var ilce = _db.ilceler.Where(n => n.il_id == id).ToList();
             return Json(JsonConvert.SerializeObject(ilce), JsonRequestBehavior.AllowGet);
         }
