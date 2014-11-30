@@ -3,7 +3,7 @@
 $(document).ready(function () {
 
     $("#ilSecimi").change(function () {
-        $.get("http://"+url+"/emlakCenter/home/getIlce", { id: $(this).val() }, function (data) {
+        $.get("http://"+url+"/home/getIlce", { id: $(this).val() }, function (data) {
             var ilceler = $.parseJSON(data);
             $("#semtSecimi").html("<option selected>Semt Seçiniz</option>");
             $("#ilceSecimi").html("");
@@ -16,7 +16,7 @@ $(document).ready(function () {
     });
 
     $("#ilceSecimi").change(function () {
-        $.get("http://"+url+"/emlakCenter/home/getSemt", { id: $("#ilceSecimi").val() }, function (data) {
+        $.get("http://"+url+"/home/getSemt", { id: $("#ilceSecimi").val() }, function (data) {
             var ilceler = $.parseJSON(data);
             $("#semtSecimi").html("");
             $("#semtSecimi").append("<option>Semt Seçiniz</option>");
