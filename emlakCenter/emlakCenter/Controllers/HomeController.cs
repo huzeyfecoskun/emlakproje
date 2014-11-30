@@ -5,6 +5,7 @@ using System.Web;
 using System.Web.Mvc;
 using emlakCenter.Models;
 using Newtonsoft.Json;
+using RijndaelEncryptDecrypt;
 
 namespace emlakCenter.Controllers
 {
@@ -14,9 +15,30 @@ namespace emlakCenter.Controllers
 
         public ActionResult Index()
         {
+            HttpCookie c = new HttpCookie("ute");
+            c.Value = EncryptDecryptUtils.Encrypt("halid", "asss", "ddddd", "SHA1");
+            c.Expires = DateTime.Now.AddDays(1);
+            Response.SetCookie(c);
+
+
+            HttpContext.Session["ute"] = "aaa";
+
+
             return View();
         }
 
+        public ActionResult cookieSil()
+        {
+            HttpCookie c = new HttpCookie("ute");
+            c.Expires = DateTime.Now.AddDays(-1);
+            Response.SetCookie(c);
+            return Content("silindi");
+        }
+
+        public ActionResult CookieOku()
+        {
+            return Content(EncryptDecryptUtils.Decrypt(Request.Cookies["ute"].Value,"asss","ddddd","SHA1"));
+        }
         public ActionResult GetIlce(int? id)
         {
             if (id == null) id = 1;
@@ -28,23 +50,6 @@ namespace emlakCenter.Controllers
             var semt = _db.semtler.Where(n => n.ilce_id == id).ToList();
             return Json(JsonConvert.SerializeObject(semt), JsonRequestBehavior.AllowGet);
         }
-        public ActionResult About()
-        {
-            ViewBag.Message = "Ysfdhjlşwerwe enes ption page.";
 
-            return View();
-        }
-
-        public ActionResult Contact()
-        {
-            ViewBag.Message = "Your contact page.";
-
-            return View();
-        }
-
-        public ActionResult Data()
-        {
-            return View(_db.iller.ToList());
-        }
     }
 }

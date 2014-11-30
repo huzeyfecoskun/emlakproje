@@ -19,6 +19,12 @@ namespace emlakCenter
             bundles.Add(new ScriptBundle("~/bundles/site").Include(
                         "~/Scripts/site.js"));
 
+            bundles.Add(new ScriptBundle("~/bundles/date").Include(
+                        "~/Scripts/bootstrap-datetimepicker.min.js",
+                        "~/Scripts/Locales/bootstrap-datetimepicker.tr.js"
+                        ));
+
+
             // Use the development version of Modernizr to develop with and learn from. Then, when you're
             // ready for production, use the build tool at http://modernizr.com to pick only the tests you need.
             bundles.Add(new ScriptBundle("~/bundles/modernizr").Include(
@@ -30,7 +36,9 @@ namespace emlakCenter
 
             bundles.Add(new StyleBundle("~/Content/css").Include(
                       "~/Content/bootstrap.css",
-                      "~/Content/site.css"));
+                      "~/Content/site.css",
+                      "~/Content/bootstrap-datetimepicker.min.css"
+                      ));
 
 
             // Set EnableOptimizations to false for debugging. For more information,
