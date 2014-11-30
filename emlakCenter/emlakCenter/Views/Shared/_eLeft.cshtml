@@ -1,4 +1,10 @@
-﻿@model emlakCenter.Models.ilan
+﻿@using emlakCenter.Models
+@model emlakCenter.Models.ilan
+@{
+    systemDB db = new systemDB();
+    var il = db.iller.ToList();
+    db.Dispose();
+}
 
 @using (Ajax.BeginForm("arama", "home", new AjaxOptions { UpdateTargetId = "e-right" }))
 {
@@ -15,13 +21,17 @@
             </div>
             <div id="collapseOne" class="panel-collapse collapse in" role="tabpanel" aria-labelledby="headingOne">
                 <div class="panel-body">
-                    <select class="form-control">
+                    <select id="ilSecimi" class="form-control">
                         <option>İl Seçiniz</option>
+                        @foreach(var item in il)
+                        {
+                            <option value="@item.Id">@item.il_adi</option>
+                        }
                     </select>
-                    <select class="form-control">
+                    <select id="ilceSecimi" class="form-control">
                         <option>İlçe Seçiniz</option>
                     </select>
-                    <select class="form-control">
+                    <select id="semtSecimi" class="form-control">
                         <option>Semt Seçiniz</option>
                     </select>
                 </div>

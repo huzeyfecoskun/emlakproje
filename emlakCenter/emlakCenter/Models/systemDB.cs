@@ -16,5 +16,7 @@ namespace emlakCenter.Models
         public DbSet<arsaMedya> ArsaMedya { get; set; }
         public DbSet<il> iller { get; set; }
         public DbSet<ilce> ilceler { get; set; }
+        public DbSet<semt> semtler { get; set; }
+
     }
 }
