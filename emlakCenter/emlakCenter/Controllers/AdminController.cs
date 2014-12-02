@@ -29,7 +29,6 @@ namespace emlakCenter.Controllers
                     file.SaveAs(Server.MapPath("~/Content/Uploads/" + fileName));
                 }
                 return Content("Success");
-
             }
             return Content("failed");
 
