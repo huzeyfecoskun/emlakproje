@@ -176,7 +176,6 @@
     <Compile Include="Models\systemDB.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Startup.cs" />
-    <Compile Include="Uploader.cs" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="App_Data\database.mdf" />
