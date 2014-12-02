@@ -16,5 +16,10 @@ namespace emlakCenter.Models
         public DbSet<il> iller { get; set; }
         public DbSet<ilce> ilceler { get; set; }
         public DbSet<semt> semtler { get; set; }
+        public DbSet<arsa> arsalar { get; set; }
+        public DbSet<ilan> ilanlar { get; set; }
+        public DbSet<tapuDurumu> tapuDurumlari { get; set; }
+        public DbSet<ilanSahibi> ilanSahipleri { get; set; }
+        public DbSet<uyelikTipi> uyelikTipleri { get; set; }  
     }
 }

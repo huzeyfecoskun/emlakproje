@@ -164,6 +164,7 @@
     <Compile Include="App_Start\IdentityConfig.cs" />
     <Compile Include="App_Start\RouteConfig.cs" />
     <Compile Include="App_Start\Startup.Auth.cs" />
+    <Compile Include="Controllers\AdminController.cs" />
     <Compile Include="Controllers\HelperController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Global.asax.cs">
@@ -181,14 +182,58 @@
     <Content Include="App_Data\database_log.ldf">
       <DependentUpon>database.mdf</DependentUpon>
     </Content>
+    <Content Include="Content\admin\css\AdminLTE.css" />
+    <Content Include="Content\admin\css\bootstrap.min.css" />
+    <Content Include="Content\admin\css\font-awesome.min.css" />
+    <Content Include="Content\admin\css\ionicons.min.css" />
+    <Content Include="Content\admin\fonts\glyphicons-halflings-regular.svg" />
+    <Content Include="Content\admin\img\ajax-loader.gif" />
+    <Content Include="Content\admin\img\ajax-loader1.gif" />
+    <Content Include="Content\admin\img\avatar.png" />
+    <Content Include="Content\admin\img\avatar04.png" />
+    <Content Include="Content\admin\img\avatar2.png" />
+    <Content Include="Content\admin\img\avatar3.png" />
+    <Content Include="Content\admin\img\avatar5.png" />
+    <Content Include="Content\admin\img\blur-background04.jpg" />
+    <Content Include="Content\admin\img\blur-background08.jpg" />
+    <Content Include="Content\admin\img\blur-background09.jpg" />
+    <Content Include="Content\admin\img\bootstrap-colorpicker\alpha-horizontal.png" />
+    <Content Include="Content\admin\img\bootstrap-colorpicker\alpha.png" />
+    <Content Include="Content\admin\img\bootstrap-colorpicker\hue-horizontal.png" />
+    <Content Include="Content\admin\img\bootstrap-colorpicker\hue.png" />
+    <Content Include="Content\admin\img\bootstrap-colorpicker\saturation.png" />
+    <Content Include="Content\admin\img\credit\american-express.png" />
+    <Content Include="Content\admin\img\credit\cirrus.png" />
+    <Content Include="Content\admin\img\credit\mastercard.png" />
+    <Content Include="Content\admin\img\credit\mestro.png" />
+    <Content Include="Content\admin\img\credit\paypal.png" />
+    <Content Include="Content\admin\img\credit\paypal2.png" />
+    <Content Include="Content\admin\img\credit\visa.png" />
+    <Content Include="Content\admin\img\icons.png" />
+    <Content Include="Content\admin\img\sprite-skin-flat.png" />
+    <Content Include="Content\admin\img\sprite-skin-nice.png" />
+    <Content Include="Content\admin\img\user-bg.png" />
+    <Content Include="Content\admin\img\user.jpg" />
+    <Content Include="Content\admin\img\user2.jpg" />
+    <Content Include="Content\bootstrap-datetimepicker.min.css" />
     <Content Include="Content\bootstrap.css" />
     <Content Include="Content\bootstrap.min.css" />
     <Content Include="favicon.ico" />
     <Content Include="fonts\glyphicons-halflings-regular.svg" />
     <Content Include="Global.asax" />
     <Content Include="Content\Site.css" />
+    <Content Include="Scripts\admin\app.js" />
+    <Content Include="Scripts\admin\bootstrap.min.js" />
+    <Content Include="Scripts\admin\demo.js" />
+    <Content Include="Scripts\admin\jquery.min.js" />
+    <Content Include="Scripts\bootstrap-datetimepicker.min.js" />
+    <Content Include="Scripts\bootstrap-timepicker.js" />
+    <Content Include="Scripts\bootstrap-timepicker.min.js" />
     <Content Include="Scripts\bootstrap.js" />
     <Content Include="Scripts\bootstrap.min.js" />
+    <Content Include="Content\admin\fonts\glyphicons-halflings-regular.eot" />
+    <Content Include="Content\admin\fonts\glyphicons-halflings-regular.ttf" />
+    <Content Include="Content\admin\fonts\glyphicons-halflings-regular.woff" />
     <None Include="Scripts\jquery-1.10.2.intellisense.js" />
     <Content Include="Scripts\jquery-1.10.2.js" />
     <Content Include="Scripts\jquery-1.10.2.min.js" />
@@ -199,6 +244,7 @@
     <Content Include="Scripts\jquery.validate.min.js" />
     <Content Include="Scripts\jquery.validate.unobtrusive.js" />
     <Content Include="Scripts\jquery.validate.unobtrusive.min.js" />
+    <Content Include="Scripts\locales\bootstrap-datetimepicker.tr.js" />
     <Content Include="Scripts\modernizr-2.6.2.js" />
     <Content Include="Scripts\respond.js" />
     <Content Include="Scripts\respond.min.js" />
@@ -223,6 +269,10 @@
     <Content Include="Scripts\jquery-1.10.2.min.map" />
     <Content Include="Views\Shared\_LoginPartial.cshtml" />
     <Content Include="Views\Shared\_eLeft.cshtml" />
+    <Content Include="Views\Shared\Admin\_Layaut.cshtml" />
+    <Content Include="Views\Admin\Index.cshtml" />
+    <Content Include="Views\Shared\Admin\partial\Header.cshtml" />
+    <Content Include="Views\Shared\Admin\partial\Left.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="Content\img\" />

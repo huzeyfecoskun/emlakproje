@@ -53,14 +53,13 @@ namespace emlakCenter.Models
 
     public class arsaMedya
     {
+        [Key]
         public int id { get; set; }
         public int arsa_id { get; set; }
 
         public string resim { get; set; }
         public string harita { get; set; }
         public string video { get; set; }
-
-
     }
 
     public class ilan
