@@ -18,6 +18,8 @@ namespace emlakCenter
                         "~/Scripts/jquery.unobtrusive-ajax.min.js"));
             bundles.Add(new ScriptBundle("~/bundles/site").Include(
                         "~/Scripts/site.js"));
+            bundles.Add(new ScriptBundle("~/bundles/admin/adjs").Include(
+                        "~/Scripts/adminJS.js"));
 
             bundles.Add(new ScriptBundle("~/bundles/date").Include(
                         "~/Scripts/bootstrap-datetimepicker.min.js",

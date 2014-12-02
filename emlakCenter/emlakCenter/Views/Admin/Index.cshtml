@@ -7,42 +7,13 @@
 <h2>Admin Anasayfası</h2>
   
 
-<form id="imageUploadId" class="border-form" style="background-color:#cee6ff;margin-bottom:10px;">
+<form id="galleryID">
     <h3>Resim Upload Et</h3>
-
     <input id="fileInputType" type="file" multiple class="fileUpload"
            style="width:300px;"><br />
     <p style="color: #0066FF">
         Gönderebileceğin dosyalar JPG, GIF, Or PNG.
     </p>
-
     <input type="submit" class="btn btn-success" value="Gönder" />
 </form>
 
-<script type="text/javascript">
-    $("#imageUploadId").submit(function () {
-        var formdata = new FormData();
-        var fileInput = document.getElementById('fileInputType');
-        for (i = 0; i < fileInput.files.length; i++) {
-            formdata.append(fileInput.files[i].name, fileInput.files[i]);
-        }
-        var xhr = new XMLHttpRequest();
-        if (window.location.href.indexOf('localhost') > -1) {
-            xhr.open('POST', 'http://localhost/emlakCenter/admin/upload');
-        } else {
-            xhr.open('POST', 'http://localhost/emlakCenter/admin/upload');
-        }
-        xhr.send(formdata);
-        xhr.onreadystatechange = function () {
-            if (xhr.readyState == 4 && xhr.status == 200) {
-                if (xhr.responseText == "Success") {
-                    alert("Dosya gönderildi");
-                }
-                else {
-                    alert("Gönderilemedi tekrar deneyiniz");
-                }
-            }
-        }
-        return false;
-    });
-</script>

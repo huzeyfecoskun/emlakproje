@@ -14,7 +14,8 @@ namespace emlakCenter.Controllers
         }
 
 
-        public ActionResult Upload(HttpPostedFile photo)
+        [HttpPost]
+        public ActionResult UploadImageMethod()
         {
             if (Request.Files.Count != 0)
             {
@@ -22,16 +23,18 @@ namespace emlakCenter.Controllers
                 {
                     HttpPostedFileBase file = Request.Files[i];
                     int fileSize = file.ContentLength;
-
                     string fileName = file.FileName;
                     string[] arr = fileName.Split('\\');
                     fileName = arr[arr.Length - 1];
-                    file.SaveAs(Server.MapPath("~/Content/Uploads/" + fileName));
+                    file.SaveAs(Server.MapPath("~/content/uploads/" + fileName));
+                    //hImage img = new hImage();
+                    //img.imageUrl = fileName;
+                    //_db.images.Add(img);
+                    //_db.SaveChanges();
                 }
                 return Content("Success");
             }
             return Content("failed");
-
         }
     }
 }

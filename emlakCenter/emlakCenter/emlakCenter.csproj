@@ -222,6 +222,7 @@
     <Content Include="fonts\glyphicons-halflings-regular.svg" />
     <Content Include="Global.asax" />
     <Content Include="Content\Site.css" />
+    <Content Include="Scripts\adminJS.js" />
     <Content Include="Scripts\admin\app.js" />
     <Content Include="Scripts\admin\bootstrap.min.js" />
     <Content Include="Scripts\admin\demo.js" />
@@ -277,6 +278,7 @@
   <ItemGroup>
     <Folder Include="Content\img\" />
     <Folder Include="Content\Uploads\" />
+    <Folder Include="Views\Helper\" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="fonts\glyphicons-halflings-regular.woff" />
