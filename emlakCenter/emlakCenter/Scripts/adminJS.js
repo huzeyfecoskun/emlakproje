@@ -2,6 +2,46 @@
 // Developer : huzeyfe coşkun
 // Developer : halid şenyiğit
 // Tarih     : 03.12.2014
+
+function preview(what) {
+
+    
+    var fileTypes = ["jpg", "jpeg", "png"];
+
+    if (what.multiple == true) {
+
+        len = what.files.length;
+
+        for (var j = 0; j < len; j++)
+        {
+            var source = what.files.item(j).name;
+            
+            
+            var ext = source.substring(source.lastIndexOf(".") + 1, source.length).toLowerCase();
+            //alert(ext);
+            var uzantikont = false;
+            for (var i = 0; i < fileTypes.length; i++)
+            {
+                if (fileTypes[i] == ext)
+                {
+                    uzantikont = true;
+                }
+            }
+
+            if (!uzantikont)
+           {
+                $("#fileInputType").val('');
+                alert("BU TÜR DOSYALARI YÜKLEYEMEZSİNİZ!\n\nİzin verilen dosya uzantıları:\n\n" + fileTypes.join(", "));
+            }
+        }
+
+
+    }
+    
+}
+
+
+
 $(document).ready(
 
     function()
