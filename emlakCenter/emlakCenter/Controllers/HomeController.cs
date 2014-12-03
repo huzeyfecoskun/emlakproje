@@ -53,7 +53,7 @@ namespace emlakCenter.Controllers
         }
         class SearchObject
         {
-            public String imgUrl,content,price,area;
+            public String imgUrl,aciklama,fiyat,metrekare;
         }
 
         [HttpPost]
@@ -63,21 +63,21 @@ namespace emlakCenter.Controllers
             {
                 SearchObject s1 = new SearchObject();
                 s1.imgUrl = new Uri(Request.Url, Url.Content("~/Helper/DosyaAdi/?adres=resim-1.jpg&w=200&h=140")).ToString();
-                s1.content = "İçerik 1";
-                s1.price = "2.000.000 TRY";
-                s1.area = "1.000.000";
+                s1.aciklama = "İçerik 1";
+                s1.fiyat = "3.000.000 TRY";
+                s1.metrekare = "1.000.000";
 
                 SearchObject s2 = new SearchObject();
                 s2.imgUrl = new Uri(Request.Url, Url.Content("~/Helper/DosyaAdi/?adres=resim-1.jpg&w=200&h=140")).ToString();
-                s2.content = "İçerik 2";
-                s2.price = "2.000.000 TRY";
-                s2.area = "1.000.000";
+                s2.aciklama = "İçerik 2";
+                s2.fiyat = "4.000.000 TRY";
+                s2.metrekare = "3.000.000";
 
                 SearchObject s3 = new SearchObject();
                 s3.imgUrl = new Uri(Request.Url, Url.Content("~/Helper/DosyaAdi/?adres=resim-1.jpg&w=200&h=140")).ToString();
-                s3.content = "İçerik 3";
-                s3.price = "2.000.000 TRY";
-                s3.area = "1.000.000";
+                s3.aciklama = "İçerik 3";
+                s3.fiyat = "15.000.000 TRY";
+                s3.metrekare = "5.000.000";
 
                 SearchObject[] result = new SearchObject[3];
                 result[0] = s1;
