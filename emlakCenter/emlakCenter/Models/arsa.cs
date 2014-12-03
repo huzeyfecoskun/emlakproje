@@ -44,6 +44,8 @@ namespace emlakCenter.Models
         [Display(Name = "Parsel")]
         public string parsel { get; set; }
 
+        [Display(Name = "Aciklama")]
+        public string aciklama { get; set; }
 
 
         public bool hasResim { get; set; }
@@ -82,6 +84,7 @@ namespace emlakCenter.Models
 
         [Display(Name = "Takas")]
         public bool takasDurum { get; set; } // 1=> takas yapılabilir
+
 
     }
     public class il

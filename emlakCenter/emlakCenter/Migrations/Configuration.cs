@@ -26,6 +26,38 @@ namespace emlakCenter.Migrations
             //      new Person { FullName = "Rowan Miller" }
             //    );
             //
+
+            Models.arsa arsa1 = new Models.arsa();
+            arsa1.il = 60;
+            arsa1.ilce = 920;
+            arsa1.semt = 4262;
+            arsa1.metrekare = 1000000;
+            arsa1.fiyat = 1000;
+            arsa1.tapuDurumu = 1;
+            arsa1.arsaTipi = "Ýmara açýk?";
+            arsa1.aciklama = "Ýçerik 1";
+
+            Models.arsa arsa2 = new Models.arsa();
+            arsa2.il = 60;
+            arsa2.ilce = 920;
+            arsa2.semt = 4262;
+            arsa2.metrekare = 1000000;
+            arsa2.fiyat = 1000;
+            arsa2.tapuDurumu = 1;
+            arsa2.arsaTipi = "Ýmara açýk?";
+            arsa2.aciklama = "Ýçerik 2";
+
+            Models.arsa arsa3 = new Models.arsa();
+            arsa3.il = 60;
+            arsa3.ilce = 920;
+            arsa3.semt = 4262;
+            arsa3.metrekare = 1000000;
+            arsa3.fiyat = 1000;
+            arsa3.tapuDurumu = 1;
+            arsa3.arsaTipi = "Ýmara açýk?";
+            arsa3.aciklama = "Ýçerik 3";
+            context.arsalar.AddOrUpdate(arsa1, arsa2, arsa3);
         }
+
     }
 }
