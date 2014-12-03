@@ -47,7 +47,6 @@ $(document).ready(
     }
 
 );
-
 function ImageUpload()
 {
     $("#galleryID").submit(function () {
