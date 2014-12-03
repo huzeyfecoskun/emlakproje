@@ -39,9 +39,6 @@ function preview(what) {
     }
     
 }
-
-
-
 $(document).ready(
 
     function()
