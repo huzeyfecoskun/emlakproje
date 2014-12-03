@@ -1,5 +1,5 @@
-﻿//var url = "localhost/emlakCenter";
-var url = "localhost:26974";
+﻿var url = "localhost/emlakCenter";
+//var url = "localhost:26974";
 var skeleton = '<div class="e-ilan">' +
      '   <img src="[[url]]">' +
      '   <div class="e-baslik">' +
@@ -116,4 +116,19 @@ function replaceWithRespect2Index(obj, oldText) {
         }
     }
     return newText;
+}
+
+var fileTypes = ["jpg", "jpeg", "png"];
+
+function preview(what) {
+    var source = what.value;
+    var ext = source.substring(source.lastIndexOf(".") + 1, source.length).toLowerCase();
+    for (var i = 0; i < fileTypes.length; i++) if (fileTypes[i] == ext) break;
+    globalPic = new Image();
+    if (i < fileTypes.length) globalPic.src = source;
+    else {
+        globalPic.src = defaultPic;
+        alert("BU TÜR DOSYALARI YÜKLEYEMEZSİNİZ!\n\nİzin verilen dosya uzantıları:\n\n" + fileTypes.join(", "));
+    }
+    
 }
