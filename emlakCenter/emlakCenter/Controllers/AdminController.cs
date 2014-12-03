@@ -8,8 +8,10 @@ namespace emlakCenter.Controllers
 {
     public class AdminController : Controller
     {
+        private String[] allowedExtensions = { "jpg", "png", "gif" };
         public ActionResult Index()
         {
+            ViewBag.extensions = String.Join(", ", allowedExtensions).ToUpperInvariant(); // GIF instead of GİF
             return View();
         }
 
@@ -25,15 +27,8 @@ namespace emlakCenter.Controllers
                     int fileSize = file.ContentLength;
                     string fileName = file.FileName;
                     string[] ext = fileName.Split('.');
-                    string extention = ext[ext.Length - 1];
-                    if (
-                        extention == "jpg" ||
-                        extention == "png" ||
-                        extention == "jpeg" ||
-                        extention == "JPG" ||
-                        extention == "PNG" ||
-                        extention == "JPEG"
-                      )
+                    string extention = ext[ext.Length - 1].ToLower();
+                    if ( allowedExtensions.Contains(extention) )
                     {
                         string[] arr = fileName.Split('\\');
                         fileName = arr[arr.Length - 1];
