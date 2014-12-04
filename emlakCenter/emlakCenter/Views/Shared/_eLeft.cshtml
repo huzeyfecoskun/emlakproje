@@ -50,8 +50,8 @@
             </div>
             <div id="collapseTwo" class="panel-collapse collapse in" role="tabpanel" aria-labelledby="headingOne">
                 <div class="panel-body">
-                    <input type="text" class="form-control metrekare" onkeypress='return event.charCode >= 48 && event.charCode <= 57' />
-                    <input type="text" class="form-control metrekare" style="margin-left:10%;" onkeypress='return event.charCode >= 48 && event.charCode <= 57' />
+                    <input type="text" name="metrekare-start" class="form-control metrekare" onkeypress='return event.charCode >= 48 && event.charCode <= 57' />
+                    <input type="text" name="metrekare-end" class="form-control metrekare" style="margin-left:10%;" onkeypress='return event.charCode >= 48 && event.charCode <= 57' />
                 </div>
             </div>
         </div>
@@ -68,8 +68,8 @@
             </div>
             <div id="collapseThree" class="panel-collapse collapse in" role="tabpanel" aria-labelledby="headingOne">
                 <div class="panel-body">
-                    <input type="text" class="form-control metrekare" onkeypress='return event.charCode >= 48 && event.charCode <= 57' />
-                    <input type="text" class="form-control metrekare" style="margin-left:10%;" onkeypress='return event.charCode >= 48 && event.charCode <= 57' />
+                    <input type="text" name="fiyat-start" class="form-control metrekare" onkeypress='return event.charCode >= 48 && event.charCode <= 57' />
+                    <input type="text" name="fiyat-end" class="form-control metrekare" style="margin-left:10%;" onkeypress='return event.charCode >= 48 && event.charCode <= 57' />
                 </div>
             </div>
         </div>
@@ -88,10 +88,10 @@
             <div id="collapseFour" class="panel-collapse collapse in" role="tabpanel" aria-labelledby="headingOne">
                 <div class="panel-body">
                     <ul style="list-style-type:none; padding-left:0px">
-                        <li><input class="e-checkbox" type="checkbox"> Tapu durumu</li>
-                        <li><input class="e-checkbox" type="checkbox"> Tapu durumu</li>
-                        <li><input class="e-checkbox" type="checkbox"> Tapu durumu</li>
-                        <li><input class="e-checkbox" type="checkbox"> Tapu durumu</li>
+                        <li><input name="tapu-1" class="e-checkbox" type="checkbox"> Tapu durumu</li>
+                        <li><input name="tapu-2" class="e-checkbox" type="checkbox"> Tapu durumu</li>
+                        <li><input name="tapu-3" class="e-checkbox" type="checkbox"> Tapu durumu</li>
+                        <li><input name="tapu-4" class="e-checkbox" type="checkbox"> Tapu durumu</li>
                     </ul>
                 </div>
             </div>
@@ -110,9 +110,9 @@
             <div id="collapseFive" class="panel-collapse collapse in" role="tabpanel" aria-labelledby="headingOne">
                 <div class="panel-body">
                     <ul style="list-style-type:none; padding-left:0px">
-                        <li><input class="e-checkbox" type="checkbox"> Resim</li>
-                        <li><input class="e-checkbox" type="checkbox"> Video</li>
-                        <li><input class="e-checkbox" type="checkbox"> Harita</li>
+                        <li><input name="resim-check" class="e-checkbox" type="checkbox"> Resim</li>
+                        <li><input name="video-check" class="e-checkbox" type="checkbox"> Video</li>
+                        <li><input name="harita-check" class="e-checkbox" type="checkbox"> Harita</li>
                     </ul>
                 </div>
             </div>
@@ -130,7 +130,7 @@
             </div>
             <div id="collapseSix" class="panel-collapse collapse in" role="tabpanel" aria-labelledby="headingOne">
                 <div class="panel-body">
-                    <input class="bas_time form-control" input type="text" />
+                    <input name="tarih" class="bas_time form-control" input type="text" />
                 </div>
             </div>
         </div>
@@ -147,7 +147,7 @@
             </div>
             <div id="collapseSeven" class="panel-collapse collapse in" role="tabpanel" aria-labelledby="headingOne">
                 <div class="panel-body">
-                    <input class="form-control" type="text" />
+                    <input name="keyword" class="form-control" type="text" />
                 </div>
             </div>
         </div>

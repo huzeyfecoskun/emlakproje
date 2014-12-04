@@ -1,5 +1,5 @@
-﻿var url = "localhost/emlakCenter";
-//var url = "localhost:26974";
+﻿//var url = "localhost/emlakCenter";
+var url = "localhost:26974";
 var skeleton = '<div class="e-ilan">' +
      '   <img src="[[url]]">' +
      '   <div class="e-baslik">' +
@@ -43,7 +43,7 @@ $(document).ready(function () {
     $("#semtSecimi").change(function () {
         var query = { "semtID": $("#semtSecimi").val() };
         $.post("http://" + url + "/home/getSearchResults", { queryString: JSON.stringify(query) }, function (data) {
-            console.log("I got: " + data);
+            //console.log("I got: " + data);
             var results = $.parseJSON(data);
             $("#e-right").html("");
             for (var i = 0 ; i < results.length ; i++) {
@@ -68,11 +68,11 @@ $(document).ready(function () {
     });
 
     $.post("http://" + url + "/home/getSearchResults", { queryString: "first" }, function (data) {
-        console.log("I got: " + data);
+        //console.log("I got: " + data);
         var results = $.parseJSON(data);
         for (var i = 0 ; i < results.length ; i++) {
             //var newSkeleton = skeleton;
-            $("#e-right").append(replaceWithRespect2Index(results[i], skeleton));
+            //$("#e-right").append(replaceWithRespect2Index(results[i], skeleton));
         }
     });
 
