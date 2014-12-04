@@ -4,6 +4,7 @@ namespace emlakCenter.Migrations
     using System.Data.Entity;
     using System.Data.Entity.Migrations;
     using System.Linq;
+    using Models;
 
     internal sealed class Configuration : DbMigrationsConfiguration<emlakCenter.Models.systemDB>
     {
@@ -26,6 +27,29 @@ namespace emlakCenter.Migrations
             //      new Person { FullName = "Rowan Miller" }
             //    );
             //
+
+            context.ilanSahipleri.AddOrUpdate(
+                p => p.ilanSahibi_adi,
+                new ilanSahibi { 
+                    ilanSahibi_adi = "Halid",
+                    ilanSahibi_soyadi= "Þenyiðit",
+                    ilanSahibi_email="halidsenyigit@gmail.com",
+                    ilanSahibi_gsm="0 555 555 55 55",
+                    ilanSahibi_tel="0 312 222 22 22",
+                    ilanSahibi_uyelikTipi=1 
+                }
+                );
+
+            context.ilanlar.AddOrUpdate(
+                p => p.ilanNo,
+                new ilan { 
+                    ilanNo="1000",
+                    ilanSahibi=1,
+                    ilantarihi=System.DateTime.Now.Date,
+                    ilanTuru=1,
+                    takasDurum= true
+                }
+                );
 
             Models.arsa arsa1 = new Models.arsa();
             arsa1.il = 60;
@@ -57,6 +81,8 @@ namespace emlakCenter.Migrations
             arsa3.arsaTipi = "Ýmara açýk?";
             arsa3.aciklama = "Ýçerik 3";
             context.arsalar.AddOrUpdate(arsa1, arsa2, arsa3);
+
+            
         }
 
     }
