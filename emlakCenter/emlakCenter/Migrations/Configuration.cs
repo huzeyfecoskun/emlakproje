@@ -80,7 +80,7 @@ namespace emlakCenter.Migrations
             arsa3.tapuDurumu = 1;
             arsa3.arsaTipi = "İmara açık?";
             arsa3.aciklama = "İçerik 3";
-            context.arsalar.AddOrUpdate(arsa1, arsa2, arsa3);
+            context.arsalar.AddOrUpdate(p=> p.Id,arsa1, arsa2, arsa3);
 
             
         }
