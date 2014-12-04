@@ -94,5 +94,20 @@ namespace emlakCenter.Controllers
             return Json(JsonConvert.SerializeObject(results), JsonRequestBehavior.AllowGet);
         }
 
+        public ActionResult Ilan(int? id)
+        {
+            if (id == null)
+            {
+                return RedirectToAction("index", "home");
+            }
+            else
+            {
+                return View(_db.ilanlar.Where(n => n.id == id));
+            }
+                
+
+            
+        }
+
     }
 }

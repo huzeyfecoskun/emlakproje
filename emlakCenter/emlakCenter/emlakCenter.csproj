@@ -274,6 +274,7 @@
     <Content Include="Views\Admin\Index.cshtml" />
     <Content Include="Views\Shared\Admin\partial\Header.cshtml" />
     <Content Include="Views\Shared\Admin\partial\Left.cshtml" />
+    <Content Include="Views\Home\Ilan.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="Content\img\" />

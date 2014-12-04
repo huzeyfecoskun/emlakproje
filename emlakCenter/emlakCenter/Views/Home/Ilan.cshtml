@@ -1,0 +1,59 @@
+﻿@model emlakCenter.Models.ilan
+
+@{
+    ViewBag.Title = "Ilan";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2>Ilan</h2>
+
+<div>
+    <h4>ilan</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.ilanNo)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.ilanNo)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.ilantarihi)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.ilantarihi)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.ilanSahibi)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.ilanSahibi)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.ilanTuru)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.ilanTuru)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.takasDurum)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.takasDurum)
+        </dd>
+
+    </dl>
+</div>
+<p>
+    @Html.ActionLink("Edit", "Edit", new { id = Model.id }) |
+    @Html.ActionLink("Back to List", "Index")
+</p>
