@@ -102,11 +102,8 @@ namespace emlakCenter.Controllers
             }
             else
             {
-                return View(_db.ilanlar.Where(n => n.id == id));
-            }
-                
-
-            
+                return View(_db.ilanlar.Where(n => n.id == id).Take(1).ToList());
+            }           
         }
 
     }
