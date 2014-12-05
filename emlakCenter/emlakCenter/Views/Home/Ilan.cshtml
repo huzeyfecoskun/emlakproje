@@ -1,59 +1,53 @@
-﻿@model emlakCenter.Models.ilan
+﻿@model IEnumerable<emlakCenter.Models.ilan>
 
 @{
     ViewBag.Title = "Ilan";
     Layout = "~/Views/Shared/_Layout.cshtml";
 }
 
-<h2>Ilan</h2>
 
-<div>
-    <h4>ilan</h4>
-    <hr />
-    <dl class="dl-horizontal">
-        <dt>
-            @Html.DisplayNameFor(model => model.ilanNo)
-        </dt>
 
-        <dd>
-            @Html.DisplayFor(model => model.ilanNo)
-        </dd>
+    <div id="details">
+        <div class="resim">
+            <img class="ilkResim" src="~/Content/img/ilan-resim/resim-1.jpg" />
+            <img class="kucukResimler" src="~/Content/img/ilan-resim/resim-1.jpg" />
+            <img class="kucukResimler" src="~/Content/img/ilan-resim/resim-1.jpg" />
+            <img class="kucukResimler" src="~/Content/img/ilan-resim/resim-1.jpg" />
+            <img class="kucukResimler" src="~/Content/img/ilan-resim/resim-1.jpg" />
+            <img class="kucukResimler" src="~/Content/img/ilan-resim/resim-1.jpg" />
+            <img class="kucukResimler" src="~/Content/img/ilan-resim/resim-1.jpg" />
+        </div>
+        <div class="aciklama">
+            <div role="tabpanel">
 
-        <dt>
-            @Html.DisplayNameFor(model => model.ilantarihi)
-        </dt>
+                <!-- Nav tabs -->
+                <ul class="nav nav-tabs" role="tablist">
+                    <li role="presentation" class="active"><a href="#detaylar" aria-controls="home" role="tab" data-toggle="tab">Detaylar</a></li>
+                    <li role="presentation"><a href="#harita" aria-controls="harita" role="tab" data-toggle="tab">Harita</a></li>
+                    <li role="presentation"><a href="#iletisim" aria-controls="iletisim" role="tab" data-toggle="tab">İletişim</a></li>
+                </ul>
 
-        <dd>
-            @Html.DisplayFor(model => model.ilantarihi)
-        </dd>
+                <!-- Tab panes -->
+                <div class="tab-content">
+                    <div role="tabpanel" class="tab-pane active" id="detaylar">detay</div>
+                    <div role="tabpanel" class="tab-pane" id="harita">harita</div>
+                    <div role="tabpanel" class="tab-pane" id="iletisim">iletişim</div>
+                </div>
 
-        <dt>
-            @Html.DisplayNameFor(model => model.ilanSahibi)
-        </dt>
+            </div>
+        </div>
+    </div>
+@*@foreach (var item in Model)
+{
+    @item.ilanNo
+    <br />
+    @item.ilanSahibi
+    <br />
+    @item.ilantarihi
+    <br />
+    @item.ilanTuru
+    <br />
+    @item.takasDurum
+}*@
 
-        <dd>
-            @Html.DisplayFor(model => model.ilanSahibi)
-        </dd>
 
-        <dt>
-            @Html.DisplayNameFor(model => model.ilanTuru)
-        </dt>
-
-        <dd>
-            @Html.DisplayFor(model => model.ilanTuru)
-        </dd>
-
-        <dt>
-            @Html.DisplayNameFor(model => model.takasDurum)
-        </dt>
-
-        <dd>
-            @Html.DisplayFor(model => model.takasDurum)
-        </dd>
-
-    </dl>
-</div>
-<p>
-    @Html.ActionLink("Edit", "Edit", new { id = Model.id }) |
-    @Html.ActionLink("Back to List", "Index")
-</p>
