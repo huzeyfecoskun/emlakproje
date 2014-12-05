@@ -1,12 +1,17 @@
 ﻿@using emlakCenter.Models
-@model emlakCenter.Models.ilan
+@model emlakCenter.Models.QueryModel
 @{
     systemDB db = new systemDB();
     var il = db.iller.ToList();
     db.Dispose();
 }
 
-@using (Ajax.BeginForm("arama", "home", new AjaxOptions { UpdateTargetId = "e-right" }))
+@using (Ajax.BeginForm("getSearchResults", "home", new AjaxOptions
+{
+    UpdateTargetId = "e-right",
+    InsertionMode = InsertionMode.Replace,
+    HttpMethod = "post"
+}))
 {
 
 
@@ -50,8 +55,10 @@
             </div>
             <div id="collapseTwo" class="panel-collapse collapse in" role="tabpanel" aria-labelledby="headingOne">
                 <div class="panel-body">
-                    <input type="text" name="metrekare-start" class="form-control metrekare" onkeypress='return event.charCode >= 48 && event.charCode <= 57' />
-                    <input type="text" name="metrekare-end" class="form-control metrekare" style="margin-left:10%;" onkeypress='return event.charCode >= 48 && event.charCode <= 57' />
+                    <!--<input type="text" name="metrekare-start" class="form-control metrekare" onkeypress='return event.charCode >= 48 && event.charCode <= 57' />-->
+                    @Html.TextBoxFor(model => Model.metrekareStart, new { @class = "form-control metrekare", onkeypress = "return event.charCode >= 48 && event.charCode <= 57" })
+                    <!--<input type="text" name="metrekare-end" class="form-control metrekare" style="margin-left:10%;" onkeypress='return event.charCode >= 48 && event.charCode <= 57' />-->
+                    @Html.TextBoxFor(model => Model.metrekareEnd, new { @class = "form-control metrekare", style = "margin-left:10%;", onkeypress = "return event.charCode >= 48 && event.charCode <= 57" })
                 </div>
             </div>
         </div>
@@ -68,8 +75,10 @@
             </div>
             <div id="collapseThree" class="panel-collapse collapse in" role="tabpanel" aria-labelledby="headingOne">
                 <div class="panel-body">
-                    <input type="text" name="fiyat-start" class="form-control metrekare" onkeypress='return event.charCode >= 48 && event.charCode <= 57' />
-                    <input type="text" name="fiyat-end" class="form-control metrekare" style="margin-left:10%;" onkeypress='return event.charCode >= 48 && event.charCode <= 57' />
+                    <!--<input type="text" name="fiyat-start" class="form-control metrekare" onkeypress='return event.charCode >= 48 && event.charCode <= 57' />-->
+                    @Html.TextBoxFor(model => Model.fiyatStart, new { @class = "form-control metrekare", onkeypress = "return event.charCode >= 48 && event.charCode <= 57" })
+                    <!--<input type="text" name="fiyat-end" class="form-control metrekare" style="margin-left:10%;" onkeypress='return event.charCode >= 48 && event.charCode <= 57' />-->
+                    @Html.TextBoxFor(model => Model.fiyatEnd, new { @class = "form-control metrekare", style = "margin-left:10%;", onkeypress = "return event.charCode >= 48 && event.charCode <= 57" })
                 </div>
             </div>
         </div>
@@ -110,9 +119,9 @@
             <div id="collapseFive" class="panel-collapse collapse in" role="tabpanel" aria-labelledby="headingOne">
                 <div class="panel-body">
                     <ul style="list-style-type:none; padding-left:0px">
-                        <li><input name="resim-check" class="e-checkbox" type="checkbox"> Resim</li>
-                        <li><input name="video-check" class="e-checkbox" type="checkbox"> Video</li>
-                        <li><input name="harita-check" class="e-checkbox" type="checkbox"> Harita</li>
+                        <li>@Html.CheckBoxFor(model=>Model.resim,new {@class="e-checkbox",type="checkbox"}) Resim</li>
+                        <li>@Html.CheckBoxFor(model => Model.video, new { @class = "e-checkbox", type = "checkbox" }) Video</li>
+                        <li>@Html.CheckBoxFor(model => Model.harita, new { @class = "e-checkbox", type = "checkbox" }) Harita</li>
                     </ul>
                 </div>
             </div>
@@ -130,7 +139,7 @@
             </div>
             <div id="collapseSix" class="panel-collapse collapse in" role="tabpanel" aria-labelledby="headingOne">
                 <div class="panel-body">
-                    <input name="tarih" class="bas_time form-control" input type="text" />
+                    @Html.TextBoxFor(model => Model.tarih, new { @class="bas_time form-control"})
                 </div>
             </div>
         </div>
@@ -147,8 +156,18 @@
             </div>
             <div id="collapseSeven" class="panel-collapse collapse in" role="tabpanel" aria-labelledby="headingOne">
                 <div class="panel-body">
-                    <input name="keyword" class="form-control" type="text" />
+                    @Html.TextBoxFor(model => Model.keyword, new { @class="form-control"})
                 </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="panel-group" id="accordion8" role="tablist" aria-multiselectable="true">
+        <div class="panel panel-default">
+            <div class="panel-heading" role="tab" id="headingOne">
+                <h4 class="panel-title">
+                    <button type="submit" class="btn btn-danger">Filtrele</button>
+                </h4>
             </div>
         </div>
     </div>

@@ -6,6 +6,7 @@ using System.Web.Mvc;
 using emlakCenter.Models;
 using Newtonsoft.Json;
 using RijndaelEncryptDecrypt;
+using System.Text;
 
 namespace emlakCenter.Controllers
 {
@@ -33,7 +34,7 @@ namespace emlakCenter.Controllers
 
         public ActionResult CookieOku()
         {
-            return Content(EncryptDecryptUtils.Decrypt(Request.Cookies["ute"].Value,"asss","ddddd","SHA1"));
+            return Content(EncryptDecryptUtils.Decrypt(Request.Cookies["ute"].Value, "asss", "ddddd", "SHA1"));
         }
         public ActionResult GetIlce(int? id)
         {
@@ -53,45 +54,14 @@ namespace emlakCenter.Controllers
         }
         class SearchObject
         {
-            public String imgUrl,aciklama,fiyat,metrekare;
+            public String imgUrl, aciklama, fiyat, metrekare;
         }
 
         [HttpPost]
-        public ActionResult GetSearchResults(string queryString)
+        public ActionResult GetSearchResults(QueryModel query)
         {
-            if (queryString == "first")
-            {
-                SearchObject s1 = new SearchObject();
-                s1.imgUrl = new Uri(Request.Url, Url.Content("~/Helper/DosyaAdi/?adres=resim-1.jpg&w=200&h=140")).ToString();
-                s1.aciklama = "İçerik 1";
-                s1.fiyat = "3.000.000 TRY";
-                s1.metrekare = "1.000.000";
-
-                SearchObject s2 = new SearchObject();
-                s2.imgUrl = new Uri(Request.Url, Url.Content("~/Helper/DosyaAdi/?adres=resim-1.jpg&w=200&h=140")).ToString();
-                s2.aciklama = "İçerik 2";
-                s2.fiyat = "4.000.000 TRY";
-                s2.metrekare = "3.000.000";
-
-                SearchObject s3 = new SearchObject();
-                s3.imgUrl = new Uri(Request.Url, Url.Content("~/Helper/DosyaAdi/?adres=resim-1.jpg&w=200&h=140")).ToString();
-                s3.aciklama = "İçerik 3";
-                s3.fiyat = "15.000.000 TRY";
-                s3.metrekare = "5.000.000";
-
-                SearchObject[] result = new SearchObject[3];
-                result[0] = s1;
-                result[1] = s2;
-                result[2] = s3;
-
-                return Json(JsonConvert.SerializeObject(result), JsonRequestBehavior.AllowGet);
-            }
-
-            QueryObject query = JsonConvert.DeserializeObject<QueryObject>(queryString);
-            //query.semtID = Convert.ToString(4262);
-            var semtIDConverted = Int32.Parse(query.semtID);
-            var results = _db.arsalar.Where(semtID => semtID.semt == semtIDConverted).ToList();
-            return Json(JsonConvert.SerializeObject(results), JsonRequestBehavior.AllowGet);
+            // TODO: query ye göre arama yapılacak ve sonuçlar json olarak döndürülecek
+            return Content(query.fiyatStart+"deneme");
         }
 
         public ActionResult Ilan(int? id)
@@ -103,7 +73,7 @@ namespace emlakCenter.Controllers
             else
             {
                 return View(_db.ilanlar.Where(n => n.id == id).Take(1).ToList());
-            }           
+            }
         }
 
     }
