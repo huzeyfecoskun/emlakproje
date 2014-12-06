@@ -78,10 +78,18 @@ hr {
 }
 #details .resim img.kucukResimler{
     width:92px;
-    height:80px;
+    height:85px;
     border-radius:2px;
     float:left;
     margin:3px;
+    display:inline-block;
+    position:absolute;
+}
+#details .resim .resimler{
+    overflow-x:scroll;
+    overflow-y:hidden;
+    height:90px;
+    position:relative;
 }
 #details .aciklama{
     float:right;
