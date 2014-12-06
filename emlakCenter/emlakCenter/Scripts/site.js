@@ -1,5 +1,5 @@
-﻿//var url = "localhost/emlakCenter";
-var url = "localhost:26974";
+﻿var url = "localhost/emlakCenter";
+//var url = "localhost:26974";
 var skeleton = '<div class="e-ilan">' +
      '   <img src="[[url]]">' +
      '   <div class="e-baslik">' +

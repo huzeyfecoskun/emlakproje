@@ -1,22 +1,27 @@
 ﻿body {
     margin: 0;
     padding: 0;
-    background-color:#dedede;
+    background-color: #dedede;
 }
+
 hr {
-    margin:0;
-    padding:0;
-    margin-top:7px;
+    margin: 0;
+    padding: 0;
+    margin-top: 7px;
 }
+
 #e-nav {
-        background-color:white;
+    background-color: white;
+    position: fixed;
+    width: 100%;
+    top: 0;
 }
 
 .e-container {
     width: 940px;
     min-height: 80px;
     margin: 0 auto;
-    background-color:white;
+    background-color: white;
 }
 
 .e-logo {
@@ -47,9 +52,9 @@ hr {
     float: left;
 }
 
-.e-left select {
-    margin-bottom: 3px;
-}
+    .e-left select {
+        margin-bottom: 3px;
+    }
 
 .e-right {
     width: 720px;
@@ -57,72 +62,80 @@ hr {
     float: right;
 }
 
-#details{
-    width:940px;
-    min-height:400px;
-    margin-top:10px;
-    padding:2px;
+#details {
+    width: 940px;
+    min-height: 400px;
+    margin-top: 10px;
+    padding: 2px;
 }
-#details .resim{
-    width:400px;
-    padding:2px;
-    min-height:400px;
-    border:1px solid #000;
-    float:left;
-    border-radius:3px;
-}
-#details .resim img.ilkResim{
-    width:394px;
-    border-radius:3px;
-    margin-bottom:10px;
-}
-#details .resim img.kucukResimler{
-    width:92px;
-    height:80px;
-    border-radius:2px;
-    float:left;
-    margin:3px;
-}
-#details .aciklama{
-    float:right;
-    width:530px;
-    padding:2px;
-    border:1px solid #000;
-}
+
+    #details .resim {
+        width: 400px;
+        padding: 2px;
+        min-height: 400px;
+        border: 1px solid #000;
+        float: left;
+        border-radius: 3px;
+    }
+
+        #details .resim img.ilkResim {
+            width: 394px;
+            border-radius: 3px;
+            margin-bottom: 10px;
+        }
+
+        #details .resim img.kucukResimler {
+            width: 92px;
+            height: 80px;
+            border-radius: 2px;
+            float: left;
+            margin: 3px;
+        }
+
+    #details .aciklama {
+        float: right;
+        width: 530px;
+        padding: 2px;
+        border: 1px solid #000;
+    }
+
 .metrekare {
     width: 45%;
     float: left;
 }
 
 .e-ilan {
-    display:inline-block;
+    display: inline-block;
     width: 210px;
     margin: 10px;
-    margin-top : 4px;
+    margin-top: 4px;
     padding: 5px;
     height: 300px;
     float: left;
-    border-radius:2px;
+    border-radius: 2px;
     background: #F9F9F9;
     border: 1px solid#CACACA;
 }
-.e-ilan .e-baslik{
-    font-weight:bold;
-    text-align:center;
-    font-size:12pt;
 
-}
-.e-ilan .e-label{
-    width:100px;
-    display:inline-block;
-}
-.e-ilan .e-aciklama{
-    margin:0 auto;
-    width: 160px;
-    padding-top:7px;
-}
-.e-ilan img{
-    width : 200px;
-    height:140px;
-    border-radius:4px;
-}
+    .e-ilan .e-baslik {
+        font-weight: bold;
+        text-align: center;
+        font-size: 12pt;
+    }
+
+    .e-ilan .e-label {
+        width: 100px;
+        display: inline-block;
+    }
+
+    .e-ilan .e-aciklama {
+        margin: 0 auto;
+        width: 160px;
+        padding-top: 7px;
+    }
+
+    .e-ilan img {
+        width: 200px;
+        height: 140px;
+        border-radius: 4px;
+    }

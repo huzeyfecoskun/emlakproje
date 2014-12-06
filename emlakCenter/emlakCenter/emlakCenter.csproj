@@ -173,6 +173,7 @@
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\admin.cs" />
     <Compile Include="Models\arsa.cs" />
+    <Compile Include="Models\QueryModel.cs" />
     <Compile Include="Models\systemDB.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Startup.cs" />
