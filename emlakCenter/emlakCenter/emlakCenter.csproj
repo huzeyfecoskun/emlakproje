@@ -167,12 +167,14 @@
     <Compile Include="Controllers\AdminController.cs" />
     <Compile Include="Controllers\HelperController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
+    <Compile Include="Controllers\ilansController.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\admin.cs" />
     <Compile Include="Models\arsa.cs" />
+    <Compile Include="Models\Helper.cs" />
     <Compile Include="Models\QueryModel.cs" />
     <Compile Include="Models\systemDB.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
@@ -274,6 +276,15 @@
     <Content Include="Views\Shared\Admin\partial\Header.cshtml" />
     <Content Include="Views\Shared\Admin\partial\Left.cshtml" />
     <Content Include="Views\Home\Ilan.cshtml" />
+    <Content Include="Views\Shared\GetSearchResults.cshtml" />
+    <Content Include="Views\ilans\Create.cshtml" />
+    <Content Include="Views\ilans\Delete.cshtml" />
+    <Content Include="Views\ilans\Details.cshtml" />
+    <Content Include="Views\ilans\Edit.cshtml" />
+    <Content Include="Views\ilans\Index.cshtml" />
+    <Content Include="Views\ilans\_arsa.cshtml" />
+    <Content Include="Views\ilans\ArsaOlustur.cshtml" />
+    <Content Include="Views\ilans\Onizleme.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

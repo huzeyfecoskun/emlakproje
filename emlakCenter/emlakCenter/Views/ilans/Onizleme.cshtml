@@ -1,0 +1,134 @@
+﻿@model Tuple<emlakCenter.Models.ilan, emlakCenter.Models.arsa>
+
+
+@{
+    ViewBag.Title = "Onizleme";
+    Layout = "~/Views/Shared/Admin/_Layaut.cshtml";
+}
+
+<h2>Onizleme</h2>
+
+<div>
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.Item1.ilanSahibi)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Item1.ilanSahibi)
+        </dd>
+        <dt>
+            @Html.DisplayNameFor(model => model.Item1.krediyeUygunluk)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Item1.krediyeUygunluk)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Item1.takasDurum)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Item1.takasDurum)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Item1.tip)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Item1.tip)
+        </dd>
+    </dl>
+
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.Item2.il)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Item2.il)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Item2.ilce)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Item2.ilce)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Item2.semt)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Item2.semt)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Item2.metrekare)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Item2.metrekare)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Item2.fiyat)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Item2.fiyat)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Item2.tapuDurumu)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Item2.tapuDurumu)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Item2.arsaTipi)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Item2.arsaTipi)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Item2.parsel)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Item2.parsel)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Item2.ada)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Item2.ada)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Item2.katKarsiligi)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Item2.katKarsiligi)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Item2.aciklama)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Item2.aciklama)
+        </dd>
+    </dl>
+</div>

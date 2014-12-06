@@ -1,8 +1,12 @@
-﻿@model IEnumerable<emlakCenter.Models.ilan>
+﻿@using emlakCenter.Models
+
+@model ilan
 
 @{
     ViewBag.Title = "Ilan";
     Layout = "~/Views/Shared/_Layout.cshtml";
+    systemDB db = new systemDB();
+    
 }
 
 
@@ -39,17 +43,16 @@
             </div>
         </div>
     </div>
-@*@foreach (var item in Model)
-{
-    @item.ilanNo
+
+    @Model.ilanNo
     <br />
-    @item.ilanSahibi
+    @Model.ilanSahibi
     <br />
-    @item.ilantarihi
+    @Model.ilantarihi.ToShortDateString()
     <br />
-    @item.ilanTuru
+    @Model.ilanTuru
     <br />
-    @item.takasDurum
-}*@
+    @Model.takasDurum
+
 
 

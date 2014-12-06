@@ -61,7 +61,8 @@ namespace emlakCenter.Controllers
         public ActionResult GetSearchResults(QueryModel query)
         {
             // TODO: query ye göre arama yapılacak ve sonuçlar json olarak döndürülecek
-            return Content(query.fiyatStart+"deneme");
+            var results = _db.arsalar.Where(semtID => semtID.semt == 4262).ToList();
+            return PartialView("GetSearchResults",results);
         }
 
         public ActionResult Ilan(int? id)
@@ -72,7 +73,7 @@ namespace emlakCenter.Controllers
             }
             else
             {
-                return View(_db.ilanlar.Where(n => n.id == id).Take(1).ToList());
+                return View(_db.ilanlar.Where(n => n.id == id).FirstOrDefault());
             }
         }
 

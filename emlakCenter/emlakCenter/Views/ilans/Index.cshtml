@@ -1,0 +1,64 @@
+﻿@model IEnumerable<emlakCenter.Models.ilan>
+
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/Admin/_Layaut.cshtml";
+}
+
+<h2>Index</h2>
+
+<p>
+    @Html.ActionLink("Create New", "Create")
+</p>
+<table class="table">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.tip)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.ilanNo)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.ilantarihi)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.ilanSahibi)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.takasDurum)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.krediyeUygunluk)
+        </th>
+        <th></th>
+    </tr>
+
+@foreach (var item in Model) {
+    <tr>
+        <td>
+            @Html.DisplayFor(modelItem => item.tip)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.ilanNo)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.ilantarihi)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.ilanSahibi)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.takasDurum)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.krediyeUygunluk)
+        </td>
+        <td>
+            @Html.ActionLink("Edit", "Edit", new { id=item.id }) |
+            @Html.ActionLink("Details", "Details", new { id=item.id }) |
+            @Html.ActionLink("Delete", "Delete", new { id=item.id })
+        </td>
+    </tr>
+}
+
+</table>

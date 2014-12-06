@@ -1,0 +1,67 @@
+﻿@model emlakCenter.Models.ilan
+
+@{
+    ViewBag.Title = "Details";
+    Layout = "~/Views/Shared/Admin/_Layaut.cshtml";
+}
+
+<h2>Details</h2>
+
+<div>
+    <h4>ilan</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.tip)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.tip)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.ilanNo)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.ilanNo)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.ilantarihi)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.ilantarihi)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.ilanSahibi)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.ilanSahibi)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.takasDurum)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.takasDurum)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.krediyeUygunluk)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.krediyeUygunluk)
+        </dd>
+
+    </dl>
+</div>
+<p>
+    @Html.ActionLink("Edit", "Edit", new { id = Model.id }) |
+    @Html.ActionLink("Back to List", "Index")
+</p>

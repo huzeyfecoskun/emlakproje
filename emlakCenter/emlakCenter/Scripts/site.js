@@ -1,5 +1,5 @@
-﻿//var url = "localhost/emlakCenter";
-var url = "localhost:26974";
+﻿var url = "localhost/emlakCenter";
+//var url = "localhost:26974";
 var skeleton = '<div class="e-ilan">' +
      '   <img src="[[url]]">' +
      '   <div class="e-baslik">' +
@@ -40,18 +40,20 @@ $(document).ready(function () {
         });
     });
 
-    $("#semtSecimi").change(function () {
-        var query = { "semtID": $("#semtSecimi").val() };
-        $.post("http://" + url + "/home/getSearchResults", { queryString: JSON.stringify(query) }, function (data) {
-            //console.log("I got: " + data);
-            var results = $.parseJSON(data);
-            $("#e-right").html("");
-            for (var i = 0 ; i < results.length ; i++) {
-                //var newSkeleton = skeleton;
-                $("#e-right").append(replaceWithRespect2Index(results[i], skeleton));
-            }
-        });
-    });
+    //$("#semtSecimi").change(function () {
+    //    var query = { "semtID": $("#semtSecimi").val() };
+    //    $.post("http://" + url + "/home/getSearchResults", { queryString: JSON.stringify(query) }, function (data) {
+    //        //console.log("I got: " + data);
+    //        var results = $.parseJSON(data);
+    //        $("#e-right").html("");
+    //        for (var i = 0 ; i < results.length ; i++) {
+    //            //var newSkeleton = skeleton;
+    //            $("#e-right").append(replaceWithRespect2Index(results[i], skeleton));
+    //        }
+    //    });
+    //});
+
+    
 
     var end = new Date();
     $('.bas_time').datetimepicker({
@@ -77,6 +79,15 @@ $(document).ready(function () {
     });
 
 });
+
+function addilan(data) {
+    var results = $.parseJSON(data);
+    $("#e-right").html("");
+    for (var i = 0 ; i < results.length ; i++) {
+        //var newSkeleton = skeleton;
+        $("#e-right").append(replaceWithRespect2Index(results[i], skeleton));
+    }
+}
 
 function replaceWithRespect2Index(obj, oldText) {
 

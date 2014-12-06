@@ -12,7 +12,7 @@ namespace emlakCenter.Models
             : base("name=DefaultConnection")
         {
         }
-        public DbSet<arsaMedya> ArsaMedya { get; set; }
+        public DbSet<Medya> medyalar { get; set; }
         public DbSet<il> iller { get; set; }
         public DbSet<ilce> ilceler { get; set; }
         public DbSet<semt> semtler { get; set; }

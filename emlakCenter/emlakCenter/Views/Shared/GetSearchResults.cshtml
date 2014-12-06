@@ -1,0 +1,20 @@
+﻿@model IEnumerable<emlakCenter.Models.arsa>
+
+@foreach (var item in Model)
+{
+    <div class="e-ilan">
+        <img src="http://localhost/emlakCenter/Helper/DosyaAdi/?adres=resim-1.jpg&amp;w=200&amp;h=140">
+        <div class="e-baslik">
+            @item.aciklama
+        </div>
+        <hr>
+        <div class="e-aciklama">
+            <div class="e-fiyat">
+                <span class="e-label">Fiyat</span> @item.fiyat TL
+            </div>
+            <div class="e-mkare">
+                <span class="e-label">Metrekare</span> @item.metrekare m<sup>2</sup>
+            </div>
+        </div>
+    </div>
+}

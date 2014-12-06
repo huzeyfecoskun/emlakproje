@@ -6,9 +6,63 @@ using System.Web;
 
 namespace emlakCenter.Models
 {
+    public enum ilanTipi
+    {
+        ARSA=0,
+        EV=1, 
+        ARABA=2, 
+        MOTOSIKLET=3, 
+        ELEKTRONIK=4
+    };
+
+    public enum ArsaTipi { 
+        SATILIK=0,
+        KIRALIK=1
+    };
+
+    public enum VarYok
+    {
+        YOK= 0,
+        VAR = 1
+    };
+
+    public enum MedyaTipi
+    {
+        RESIM=0,
+        VIDEO=1,
+        HARITA=2
+    };
+
+    public enum IlanSahibi
+    {
+        SAHIBINDEN = 0,
+        EMLAKCIDAN = 1,
+        BANKADAN = 2,
+        MUTEAHHITTEN = 3
+    };
+
+    public enum Uygunluk
+    {
+        UYGUNDEGIL = 0,
+        UYGUN = 1
+    };
+
+    public enum TapuDurumuDef
+    {
+        ARSA=0,
+        KAT_IRTIFAKI=1,
+        KAT_MULKIYETI=2,
+        HISSELI_TAPU=3,
+        MUSTAKIL_PARSEL=4,
+        TAHSIS=5,
+        ZILLIYET=6,
+        BILINMIYOR=7
+    };
     public class arsa
     {
-        public int Id { get; set; }
+        public long Id { get; set; }
+
+        public long ilanNo { get; set; }
         //KONUM
         [Required]
         [Display(Name = "İl")]
@@ -32,59 +86,60 @@ namespace emlakCenter.Models
 
         [Display(Name = "Tapu Durumu")]
         [Required]
-        public int tapuDurumu { get; set; }
+        public TapuDurumuDef tapuDurumu { get; set; }
 
         [Display(Name = "Arsa Tipi")]
         [Required]
-        public string arsaTipi { get; set; }
-
-        [Display(Name = "İlgili Belediye")]
-        public string ilgiliBelediye { get; set; }
+        public ArsaTipi arsaTipi { get; set; }
 
         [Display(Name = "Parsel")]
         public string parsel { get; set; }
 
+        [Display(Name = "Ada")]
+        public string ada { get; set; }
+
+        [Display(Name = "Kat Karşılığı")]
+        public Uygunluk katKarsiligi { get; set; }
+
         [Display(Name = "Aciklama")]
         public string aciklama { get; set; }
-
 
         public bool hasResim { get; set; }
         public bool hasHarita { get; set; }
         public bool hasVideo { get; set; }
     }
 
-    public class arsaMedya
+    public class Medya
     {
-        [Key]
-        public int id { get; set; }
-        public int arsa_id { get; set; }
-
-        public string resim { get; set; }
-        public string harita { get; set; }
-        public string video { get; set; }
+        public long id { get; set; }
+        public long ilanNo { get; set; }
+        public string content { get; set; }
+        public MedyaTipi tip { get; set; }
     }
 
     public class ilan
     {
-        public int id { get; set; }
+        public long id { get; set; }
+
+        public ilanTipi tip { get; set; }
+
+        public int IlanSahibiId { get; set; }
 
         [Display(Name = "İlan Numarası")]
-        public string ilanNo { get; set; }
+        public long ilanNo { get; set; }
 
         [Display(Name = "İlan tarihi")]
         [DataType(DataType.Date, ErrorMessage = "Lütfen Geçerli Bir Tarih Giriniz")]
         public DateTime ilantarihi { get; set; }
 
         [Display(Name = "İlan Sahibi")]
-        public int ilanSahibi { get; set; }
-
-        [Display(Name = "İlan Türü")]
-        [Required]
-        public int ilanTuru { get; set; } // 1 => arsa
+        public IlanSahibi ilanSahibi { get; set; }
 
         [Display(Name = "Takas")]
-        public bool takasDurum { get; set; } // 1=> takas yapılabilir
+        public Uygunluk takasDurum { get; set; } // 1=> takas yapılabilir
 
+        [Display(Name = "Krediye Uygunluk")]
+        public Uygunluk krediyeUygunluk { get; set; } // 1=> Uygun
 
     }
     public class il

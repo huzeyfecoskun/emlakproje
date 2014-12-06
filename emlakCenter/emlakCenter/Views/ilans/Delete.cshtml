@@ -1,0 +1,73 @@
+﻿@model emlakCenter.Models.ilan
+
+@{
+    ViewBag.Title = "Delete";
+    Layout = "~/Views/Shared/Admin/_Layaut.cshtml";
+}
+
+<h2>Delete</h2>
+
+<h3>Are you sure you want to delete this?</h3>
+<div>
+    <h4>ilan</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.tip)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.tip)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.ilanNo)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.ilanNo)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.ilantarihi)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.ilantarihi)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.ilanSahibi)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.ilanSahibi)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.takasDurum)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.takasDurum)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.krediyeUygunluk)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.krediyeUygunluk)
+        </dd>
+
+    </dl>
+
+    @using (Html.BeginForm()) {
+        @Html.AntiForgeryToken()
+
+        <div class="form-actions no-color">
+            <input type="submit" value="Delete" class="btn btn-default" /> |
+            @Html.ActionLink("Back to List", "Index")
+        </div>
+    }
+</div>

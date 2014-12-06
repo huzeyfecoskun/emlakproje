@@ -1,0 +1,140 @@
+﻿@using emlakCenter.Models
+@model arsa
+
+@{
+    ViewBag.Title = "ArsaOlustur";
+    Layout = "~/Views/Shared/Admin/_Layaut.cshtml";
+    systemDB db = new systemDB();
+    var il = db.iller.ToList();
+    
+}
+
+
+
+
+
+<h2>ArsaOlustur</h2>
+
+@using (Html.BeginForm()) 
+{
+    @Html.AntiForgeryToken()
+    
+    <div class="form-horizontal">
+        <h4>arsa</h4>
+        <hr />
+        @Html.ValidationSummary(true, "", new { @class = "text-danger" })
+        <div class="form-group">
+            @Html.LabelFor(model => model.il, htmlAttributes: new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                <select id="ilSecimi" name="il" class="form-control">
+                    @foreach (var item in il)
+                    {
+                        <option value="@item.Id">@item.il_adi</option>
+                    }
+                </select>
+                @Html.ValidationMessageFor(model => model.il, "", new { @class = "text-danger" })
+            </div>
+        </div>
+
+        <div class="form-group">
+            @Html.LabelFor(model => model.ilce, htmlAttributes: new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                <select name="ilce" id="ilceSecimi" class="form-control">
+                    <option>İlçe Seçiniz</option>
+                </select>
+                @Html.ValidationMessageFor(model => model.ilce, "", new { @class = "text-danger" })
+            </div>
+        </div>
+
+        <div class="form-group">
+            @Html.LabelFor(model => model.semt, htmlAttributes: new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                <select name="semt" id="semtSecimi" class="form-control">
+                    <option>Semt Seçiniz</option>
+                </select>
+                @Html.ValidationMessageFor(model => model.semt, "", new { @class = "text-danger" })
+            </div>
+        </div>
+
+        <div class="form-group">
+            @Html.LabelFor(model => model.metrekare, htmlAttributes: new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                @Html.EditorFor(model => model.metrekare, new { htmlAttributes = new { @class = "form-control" } })
+                @Html.ValidationMessageFor(model => model.metrekare, "", new { @class = "text-danger" })
+            </div>
+        </div>
+
+        <div class="form-group">
+            @Html.LabelFor(model => model.fiyat, htmlAttributes: new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                @Html.EditorFor(model => model.fiyat, new { htmlAttributes = new { @class = "form-control" } })
+                @Html.ValidationMessageFor(model => model.fiyat, "", new { @class = "text-danger" })
+            </div>
+        </div>
+
+        <div class="form-group">
+            @Html.LabelFor(model => model.tapuDurumu, htmlAttributes: new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                <select class="form-control" data-val="true" data-val-required="Tapu Durumu alanı gereklidir." id="tapuDurumu" name="tapuDurumu">
+                    <option selected="selected" value="0">ARSA</option>
+                    <option value="1">KAT İRTİFAKI</option>
+                    <option value="2">KAT MULKİYETİ</option>
+                    <option value="3">HİSSELİ TAPU</option>
+                    <option value="4">MUSTAKİL PARSEL</option>
+                    <option value="5">TAHSİS</option>
+                    <option value="6">ZİLLİYET</option>
+                    <option value="7">BİLİNMİYOR</option>
+                </select>
+                @Html.ValidationMessageFor(model => model.tapuDurumu, "", new { @class = "text-danger" })
+            </div>
+        </div>
+
+        <div class="form-group">
+            @Html.LabelFor(model => model.arsaTipi, htmlAttributes: new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                @Html.EnumDropDownListFor(model => model.arsaTipi, htmlAttributes: new { @class = "form-control" })
+                @Html.ValidationMessageFor(model => model.arsaTipi, "", new { @class = "text-danger" })
+            </div>
+        </div>
+
+        <div class="form-group">
+            @Html.LabelFor(model => model.parsel, htmlAttributes: new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                @Html.EditorFor(model => model.parsel, new { htmlAttributes = new { @class = "form-control" } })
+                @Html.ValidationMessageFor(model => model.parsel, "", new { @class = "text-danger" })
+            </div>
+        </div>
+
+        <div class="form-group">
+            @Html.LabelFor(model => model.ada, htmlAttributes: new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                @Html.EditorFor(model => model.ada, new { htmlAttributes = new { @class = "form-control" } })
+                @Html.ValidationMessageFor(model => model.ada, "", new { @class = "text-danger" })
+            </div>
+        </div>
+
+        <div class="form-group">
+            @Html.LabelFor(model => model.katKarsiligi, htmlAttributes: new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                <div class="checkbox">
+                    @Html.EnumDropDownListFor(model => model.katKarsiligi, htmlAttributes: new { @class = "form-control" })
+                    @Html.ValidationMessageFor(model => model.katKarsiligi, "", new { @class = "text-danger" })
+                </div>
+            </div>
+        </div>
+
+        <div class="form-group">
+            @Html.LabelFor(model => model.aciklama, htmlAttributes: new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                @Html.EditorFor(model => model.aciklama, new { htmlAttributes = new { @class = "form-control" } })
+                @Html.ValidationMessageFor(model => model.aciklama, "", new { @class = "text-danger" })
+            </div>
+        </div>
+
+        <div class="form-group">
+            <div class="col-md-offset-2 col-md-10">
+                <input type="submit" value="Oluştur" class="btn btn-default" />
+            </div>
+        </div>
+    </div>
+}

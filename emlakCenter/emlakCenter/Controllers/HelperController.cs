@@ -22,7 +22,7 @@ namespace emlakCenter.Controllers
         public ActionResult resim(int id, int w, int h)
         {
             //Dosya adresi
-            var str = _db.ArsaMedya.Where(n => n.id == id).FirstOrDefault();
+            var str = _db.medyalar.Where(n => n.id == id).FirstOrDefault();
             //Databaseden resmi çekelim
             Image tmp = Image.FromFile(Server.MapPath("~/Content/img/ilan-resim/resim-1.jpg"));
             //width ve height ten bitmap oluşturalım
