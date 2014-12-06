@@ -101,7 +101,7 @@ namespace emlakCenter.Models
         [Display(Name = "Kat Karşılığı")]
         public Uygunluk katKarsiligi { get; set; }
 
-        [Display(Name = "Aciklama")]
+        [Display(Name = "Açıklama")]
         public string aciklama { get; set; }
 
         public bool hasResim { get; set; }
@@ -121,6 +121,7 @@ namespace emlakCenter.Models
     {
         public long id { get; set; }
 
+        [Display(Name="Tip")]
         public ilanTipi tip { get; set; }
 
         public int IlanSahibiId { get; set; }

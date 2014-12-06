@@ -1,14 +1,14 @@
 ﻿@model IEnumerable<emlakCenter.Models.ilan>
 
 @{
-    ViewBag.Title = "Index";
+    ViewBag.Title = "İlanlar";
     Layout = "~/Views/Shared/Admin/_Layaut.cshtml";
 }
 
-<h2>Index</h2>
-
+<h2>İlanlar</h2>
+<hr />
 <p>
-    @Html.ActionLink("Create New", "Create")
+    <button class="btn btn-success btn-lg" onclick="window.location.href = 'Ilans/Create'">Yeni İlan Oluştur</button>
 </p>
 <table class="table">
     <tr>

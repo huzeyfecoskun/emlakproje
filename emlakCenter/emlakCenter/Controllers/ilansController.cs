@@ -108,7 +108,23 @@ namespace emlakCenter.Controllers
             var d = Tuple.Create(iln, ars);
             return View(d);
         }
+        public ActionResult IlanIptal()
+        {
+            if (Request.Cookies["iln"] != null)
+            {
+                HttpCookie myCookie = new HttpCookie("iln");
+                myCookie.Expires = DateTime.Now.AddDays(-1d);
+                Response.Cookies.Add(myCookie);
+            }
 
+            if (Request.Cookies["ars"] != null)
+            {
+                HttpCookie myCookie = new HttpCookie("ars");
+                myCookie.Expires = DateTime.Now.AddDays(-1d);
+                Response.Cookies.Add(myCookie);
+            }
+            return RedirectToAction("Index");
+        }
         public ActionResult IlanKayit()
         {
 

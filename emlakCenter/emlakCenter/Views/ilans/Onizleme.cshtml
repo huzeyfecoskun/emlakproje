@@ -2,11 +2,9 @@
 
 
 @{
-    ViewBag.Title = "Onizleme";
+    ViewBag.Title = "Önizleme";
     Layout = "~/Views/Shared/Admin/_Layaut.cshtml";
 }
-
-<h2>Onizleme</h2>
 
 <div>
     <dl class="dl-horizontal">
@@ -131,4 +129,10 @@
             @Html.DisplayFor(model => model.Item2.aciklama)
         </dd>
     </dl>
+    <button type="button" class="btn btn-danger" onclick="window.location.href='ilanIptal'">
+        İptal
+    </button>
+    <button type="button" class="btn btn-success" onclick="window.location.href = 'IlanKayit'">
+        İlanı Kaydet
+    </button>
 </div>

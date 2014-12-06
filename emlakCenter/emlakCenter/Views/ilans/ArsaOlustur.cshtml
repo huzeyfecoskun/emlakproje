@@ -6,21 +6,20 @@
     Layout = "~/Views/Shared/Admin/_Layaut.cshtml";
     systemDB db = new systemDB();
     var il = db.iller.ToList();
-    
+
 }
 
 
 
 
 
-<h2>ArsaOlustur</h2>
+<h2>Arsa Oluştur</h2>
 
-@using (Html.BeginForm()) 
+@using (Html.BeginForm())
 {
     @Html.AntiForgeryToken()
-    
+
     <div class="form-horizontal">
-        <h4>arsa</h4>
         <hr />
         @Html.ValidationSummary(true, "", new { @class = "text-danger" })
         <div class="form-group">
@@ -59,7 +58,7 @@
         <div class="form-group">
             @Html.LabelFor(model => model.metrekare, htmlAttributes: new { @class = "control-label col-md-2" })
             <div class="col-md-10">
-                @Html.EditorFor(model => model.metrekare, new { htmlAttributes = new { @class = "form-control" } })
+                <input class="form-control text-box single-line" data-val="true" data-val-number="The field Metrekare must be a number." data-val-required="Metrekare alanı gereklidir." id="metrekare" name="metrekare" onkeypress="return event.charCode >= 48 &amp;&amp; event.charCode <= 57" value="">
                 @Html.ValidationMessageFor(model => model.metrekare, "", new { @class = "text-danger" })
             </div>
         </div>
@@ -133,7 +132,10 @@
 
         <div class="form-group">
             <div class="col-md-offset-2 col-md-10">
-                <input type="submit" value="Oluştur" class="btn btn-default" />
+                <input type="submit" value="Oluştur" class="btn btn-success" />
+                <button type="button" class="btn btn-danger" onclick="window.location.href='ilanIptal'">
+                    İptal
+                </button>
             </div>
         </div>
     </div>
