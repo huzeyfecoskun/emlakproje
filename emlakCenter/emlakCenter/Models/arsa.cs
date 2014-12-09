@@ -15,6 +15,11 @@ namespace emlakCenter.Models
         ELEKTRONIK=4
     };
 
+    public enum UyelikTipi
+    {
+        ADMIN=0
+    };
+
     public enum ArsaTipi { 
         SATILIK=0,
         KIRALIK=1
@@ -103,6 +108,8 @@ namespace emlakCenter.Models
 
         [Display(Name = "Açıklama")]
         public string aciklama { get; set; }
+
+        public long ilanNumarasi { get; set; }
 
         public bool hasResim { get; set; }
         public bool hasHarita { get; set; }
@@ -201,13 +208,7 @@ namespace emlakCenter.Models
         [Required]
         public string ilanSahibi_email { get; set; }
 
-        public int ilanSahibi_uyelikTipi { get; set; }
+        public UyelikTipi ilanSahibi_uyelikTipi { get; set; }
     }
 
-    public class uyelikTipi
-    {
-        public int id { get; set; }
-
-        public string uyelikTipi_isim { get; set; }
-    }
 }

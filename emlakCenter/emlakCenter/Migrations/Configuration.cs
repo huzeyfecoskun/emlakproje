@@ -15,42 +15,14 @@ namespace emlakCenter.Migrations
 
         protected override void Seed(emlakCenter.Models.systemDB context)
         {
-            //  This method will be called after migrating to the latest version.
-
-            //  You can use the DbSet<T>.AddOrUpdate() helper extension method 
-            //  to avoid creating duplicate seed data. E.g.
-            //
-            //    context.People.AddOrUpdate(
-            //      p => p.FullName,
-            //      new Person { FullName = "Andrew Peters" },
-            //      new Person { FullName = "Brice Lambson" },
-            //      new Person { FullName = "Rowan Miller" }
-            //    );
-            //
-
-            //context.ilanSahipleri.AddOrUpdate(
-            //    p => p.ilanSahibi_adi,
-            //    new ilanSahibi { 
-            //        ilanSahibi_adi = "Halid",
-            //        ilanSahibi_soyadi= "Þenyiðit",
-            //        ilanSahibi_email="halidsenyigit@gmail.com",
-            //        ilanSahibi_gsm="0 555 555 55 55",
-            //        ilanSahibi_tel="0 312 222 22 22",
-            //        ilanSahibi_uyelikTipi=1 
-            //    }
-            //    );
-
-            //context.ilanlar.AddOrUpdate(
-            //    p => p.ilanNo,
-            //    new ilan { 
-            //        ilanNo="1000",
-            //        ilanSahibi=1,
-            //        ilantarihi=System.DateTime.Now.Date,
-
-            //        takasDurum= true
-            //    }
-            //    );
-
+            ilanSahibi ilanSahip = new ilanSahibi();
+            ilanSahip.ilanSahibi_adi = "Halid";
+            ilanSahip.ilanSahibi_email = "halidsenyigit@gmail.com";
+            ilanSahip.ilanSahibi_gsm = "0 507 889 56 04";
+            ilanSahip.ilanSahibi_soyadi = "Þenyiðit";
+            ilanSahip.ilanSahibi_tel = "05078895604";
+            ilanSahip.ilanSahibi_uyelikTipi = UyelikTipi.ADMIN;
+            context.ilanSahipleri.AddOrUpdate(p => p.ilanSahibi_adi, ilanSahip);
 
             Models.arsa arsa3 = new Models.arsa();
             arsa3.il = 60;
@@ -61,10 +33,21 @@ namespace emlakCenter.Migrations
             arsa3.tapuDurumu = TapuDurumuDef.ARSA;
             arsa3.arsaTipi = ArsaTipi.SATILIK;
             arsa3.aciklama = "Ýçerik 3";
-            context.arsalar.AddOrUpdate(p => p.Id, arsa3);
+            arsa3.ilanNumarasi = 1001;
+            arsa3.ada = "12";
+            arsa3.parsel = "1201";
+            context.arsalar.AddOrUpdate(p => p.aciklama, arsa3);
 
-            
+            ilan ilan1 = new ilan();
+            ilan1.ilanNo = 1001;
+            ilan1.ilanSahibi = IlanSahibi.EMLAKCIDAN;
+            ilan1.IlanSahibiId = 1;
+            ilan1.ilantarihi = new DateTime(System.DateTime.Now.Ticks);
+            ilan1.krediyeUygunluk = Uygunluk.UYGUN;
+            ilan1.takasDurum = Uygunluk.UYGUN;
+            ilan1.tip = ilanTipi.ARSA;
+
+            context.ilanlar.AddOrUpdate(p => p.ilanNo, ilan1);
         }
-
     }
 }
