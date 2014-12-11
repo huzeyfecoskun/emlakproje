@@ -17,5 +17,12 @@ namespace emlakCenter.Models
         {
             return EncryptDecryptUtils.Decrypt(data, "xWertggsdfgbv", "fdsfsaEFK", "SHA1");
         }
+
+        public int ilanNo()
+        {
+            int ilanNumarasi;
+            ilanNumarasi = 100; // çook uykum geldi saat 4:30
+            return ilanNumarasi;
+        }
     }
 }

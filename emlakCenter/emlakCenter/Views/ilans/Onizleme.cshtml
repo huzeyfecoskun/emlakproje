@@ -6,133 +6,115 @@
     Layout = "~/Views/Shared/Admin/_Layaut.cshtml";
 }
 
-<div>
-    <dl class="dl-horizontal">
-        <dt>
-            @Html.DisplayNameFor(model => model.Item1.ilanSahibi)
-        </dt>
+<div class="row">
+    <div class="col-xs-6">
+        <div class="box">
+            <div class="box-header">
+                <h3>İlan</h3>
+            </div>
 
-        <dd>
-            @Html.DisplayFor(model => model.Item1.ilanSahibi)
-        </dd>
-        <dt>
-            @Html.DisplayNameFor(model => model.Item1.krediyeUygunluk)
-        </dt>
+            <div class="box-body table-responsive">
+                <table class="table table-bordered table-hover">
+                    <tbody>
+                        <tr>
+                            <td>@Html.DisplayNameFor(model => model.Item1.ilanSahibi)</td>
+                            <td>@Html.DisplayFor(model => model.Item1.ilanSahibi)</td>
+                        </tr>
 
-        <dd>
-            @Html.DisplayFor(model => model.Item1.krediyeUygunluk)
-        </dd>
+                        <tr>
+                            <td>@Html.DisplayNameFor(model => model.Item1.krediyeUygunluk)</td>
+                            <td>@Html.DisplayFor(model => model.Item1.krediyeUygunluk)</td>
+                        </tr>
 
-        <dt>
-            @Html.DisplayNameFor(model => model.Item1.takasDurum)
-        </dt>
+                        <tr>
+                            <td>@Html.DisplayNameFor(model => model.Item1.takasDurum)</td>
+                            <td>@Html.DisplayFor(model => model.Item1.takasDurum)</td>
+                        </tr>
 
-        <dd>
-            @Html.DisplayFor(model => model.Item1.takasDurum)
-        </dd>
+                        <tr>
+                            <td>@Html.DisplayNameFor(model => model.Item1.tip)</td>
+                            <td>@Html.DisplayFor(model => model.Item1.tip)</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </div>
 
-        <dt>
-            @Html.DisplayNameFor(model => model.Item1.tip)
-        </dt>
+    <div class="col-xs-6">
+        <div class="box">
+            <div class="box-header">
+                <h3>@Html.DisplayFor(model => model.Item1.tip)</h3>
+            </div>
 
-        <dd>
-            @Html.DisplayFor(model => model.Item1.tip)
-        </dd>
-    </dl>
+            <div class="box-body table-responsive">
+                <table class="table table-bordered table-hover">
+                    <tbody>
+                        <tr>
+                            <td>@Html.DisplayNameFor(model => model.Item2.il)</td>
+                            <td>@Html.DisplayFor(model => model.Item2.il)</td>
+                        </tr>
 
-    <dl class="dl-horizontal">
-        <dt>
-            @Html.DisplayNameFor(model => model.Item2.il)
-        </dt>
+                        <tr>
+                            <td>@Html.DisplayNameFor(model => model.Item2.ilce)</td>
+                            <td>@Html.DisplayFor(model => model.Item2.ilce)</td>
+                        </tr>
 
-        <dd>
-            @Html.DisplayFor(model => model.Item2.il)
-        </dd>
+                        <tr>
+                            <td>@Html.DisplayNameFor(model => model.Item2.semt)</td>
+                            <td>@Html.DisplayFor(model => model.Item2.semt)</td>
+                        </tr>
 
-        <dt>
-            @Html.DisplayNameFor(model => model.Item2.ilce)
-        </dt>
+                        <tr>
+                            <td>@Html.DisplayNameFor(model => model.Item2.metrekare)</td>
+                            <td>@Html.DisplayFor(model => model.Item2.metrekare)</td>
+                        </tr>
 
-        <dd>
-            @Html.DisplayFor(model => model.Item2.ilce)
-        </dd>
+                        <tr>
+                            <td>@Html.DisplayNameFor(model => model.Item2.fiyat)</td>
+                            <td>@Html.DisplayFor(model => model.Item2.fiyat)</td>
+                        </tr>
 
-        <dt>
-            @Html.DisplayNameFor(model => model.Item2.semt)
-        </dt>
+                        <tr>
+                            <td>@Html.DisplayNameFor(model => model.Item2.tapuDurumu)</td>
+                            <td>@Html.DisplayFor(model => model.Item2.tapuDurumu)</td>
+                        </tr>
 
-        <dd>
-            @Html.DisplayFor(model => model.Item2.semt)
-        </dd>
+                        <tr>
+                            <td>@Html.DisplayNameFor(model => model.Item2.arsaTipi)</td>
+                            <td>@Html.DisplayFor(model => model.Item2.arsaTipi)</td>
+                        </tr>
 
-        <dt>
-            @Html.DisplayNameFor(model => model.Item2.metrekare)
-        </dt>
+                        <tr>
+                            <td>@Html.DisplayNameFor(model => model.Item2.parsel)</td>
+                            <td>@Html.DisplayFor(model => model.Item2.parsel)</td>
+                        </tr>
 
-        <dd>
-            @Html.DisplayFor(model => model.Item2.metrekare)
-        </dd>
+                        <tr>
+                            <td>@Html.DisplayNameFor(model => model.Item2.ada)</td>
+                            <td>@Html.DisplayFor(model => model.Item2.ada)</td>
+                        </tr>
 
-        <dt>
-            @Html.DisplayNameFor(model => model.Item2.fiyat)
-        </dt>
+                        <tr>
+                            <td>@Html.DisplayNameFor(model => model.Item2.katKarsiligi)</td>
+                            <td>@Html.DisplayFor(model => model.Item2.katKarsiligi)</td>
+                        </tr>
 
-        <dd>
-            @Html.DisplayFor(model => model.Item2.fiyat)
-        </dd>
-
-        <dt>
-            @Html.DisplayNameFor(model => model.Item2.tapuDurumu)
-        </dt>
-
-        <dd>
-            @Html.DisplayFor(model => model.Item2.tapuDurumu)
-        </dd>
-
-        <dt>
-            @Html.DisplayNameFor(model => model.Item2.arsaTipi)
-        </dt>
-
-        <dd>
-            @Html.DisplayFor(model => model.Item2.arsaTipi)
-        </dd>
-
-        <dt>
-            @Html.DisplayNameFor(model => model.Item2.parsel)
-        </dt>
-
-        <dd>
-            @Html.DisplayFor(model => model.Item2.parsel)
-        </dd>
-
-        <dt>
-            @Html.DisplayNameFor(model => model.Item2.ada)
-        </dt>
-
-        <dd>
-            @Html.DisplayFor(model => model.Item2.ada)
-        </dd>
-
-        <dt>
-            @Html.DisplayNameFor(model => model.Item2.katKarsiligi)
-        </dt>
-
-        <dd>
-            @Html.DisplayFor(model => model.Item2.katKarsiligi)
-        </dd>
-
-        <dt>
-            @Html.DisplayNameFor(model => model.Item2.aciklama)
-        </dt>
-
-        <dd>
-            @Html.DisplayFor(model => model.Item2.aciklama)
-        </dd>
-    </dl>
-    <button type="button" class="btn btn-danger" onclick="window.location.href='ilanIptal'">
-        İptal
-    </button>
-    <button type="button" class="btn btn-success" onclick="window.location.href = 'IlanKayit'">
-        İlanı Kaydet
-    </button>
+                        <tr>
+                            <td>@Html.DisplayNameFor(model => model.Item2.aciklama)</td>
+                            <td>@Html.DisplayFor(model => model.Item2.aciklama)</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+        <div style="float:right">
+            <button type="button" class="btn btn-danger" onclick="window.location.href='ilanIptal'">
+                İptal
+            </button>
+            <button type="button" class="btn btn-success" onclick="window.location.href = 'IlanKayit'">
+                İlanı Kaydet
+            </button>
+        </div>
+    </div>
 </div>

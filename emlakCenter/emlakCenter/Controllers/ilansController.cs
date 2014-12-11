@@ -127,7 +127,46 @@ namespace emlakCenter.Controllers
         }
         public ActionResult IlanKayit()
         {
+            if (Request.Cookies["iln"] == null || Request.Cookies["ars"] == null)
+            {
+                return RedirectToAction("Index");
+            }
+            ilan iln = JsonConvert.DeserializeObject<ilan>(Helper.decrypt(Request.Cookies["iln"].Value));
+            arsa ars = JsonConvert.DeserializeObject<arsa>(Helper.decrypt(Request.Cookies["ars"].Value));
 
+            if(ModelState.IsValid)
+            {
+                ilan ilanEkle = new ilan();
+
+                ilanEkle.ilanNo = iln.ilanNo;
+                ilanEkle.ilanSahibi = iln.ilanSahibi;
+                ilanEkle.IlanSahibiId = iln.IlanSahibiId;
+                ilanEkle.ilantarihi = DateTime.Now;
+                ilanEkle.krediyeUygunluk = iln.krediyeUygunluk;
+                ilanEkle.takasDurum = iln.takasDurum;
+                ilanEkle.tip = iln.tip;
+
+                db.ilanlar.Add(ilanEkle);
+                db.SaveChanges();
+
+                arsa arsaEkle = new arsa();
+                ars.hasHarita = false;
+                ars.hasResim = false;
+                ars.hasVideo = false;
+
+                db.arsalar.Add(ars);
+                db.SaveChanges();
+
+                HttpCookie c = new HttpCookie("ars");
+                c.Expires = DateTime.Now.AddDays(-1);
+                Response.SetCookie(c);
+
+                HttpCookie c2 = new HttpCookie("iln");
+                c.Expires = DateTime.Now.AddDays(-1);
+                Response.SetCookie(c2);
+                
+            }
+            
             return View();
         }
 
