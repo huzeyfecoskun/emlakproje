@@ -18,10 +18,10 @@ namespace emlakCenter.Models
             return EncryptDecryptUtils.Decrypt(data, "xWertggsdfgbv", "fdsfsaEFK", "SHA1");
         }
 
-        public int ilanNo()
+        public static int ilanNo()
         {
             int ilanNumarasi;
-            ilanNumarasi = 100; // çook uykum geldi saat 4:30
+            ilanNumarasi = 100;
             return ilanNumarasi;
         }
     }
