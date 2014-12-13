@@ -1,0 +1,164 @@
+﻿@using emlakCenter.Models
+@model emlakCenter.Models.arsa
+
+@{
+    ViewBag.Title = "ArsaDuzenle";
+    Layout = "~/Views/Shared/Admin/_Layaut.cshtml";
+    systemDB db = new systemDB();
+    var il = db.iller.ToList();
+}
+
+<h2>ArsaDuzenle</h2>
+
+@using (Html.BeginForm("arsaDuzenle","admin",FormMethod.Post))
+{
+    @Html.AntiForgeryToken()
+    <input type="hidden" value="@Model.ilanNo" name="ilanNo"/>
+    <div class="form-horizontal">
+        <hr />
+        @Html.ValidationSummary(true, "", new { @class = "text-danger" })
+        @Html.HiddenFor(model => model.Id)
+
+        <div class="form-group">
+            @Html.LabelFor(model => model.il, htmlAttributes: new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                <select id="ilSecimi" name="il" class="form-control">
+                    <option value="@Model.il">
+                        @il.Where(n => n.Id == Model.il).FirstOrDefault().il_adi
+                    </option>
+                    @foreach (var item in il)
+                    {
+                        <option value="@item.Id">@item.il_adi</option>
+                    }
+                </select>
+                @Html.ValidationMessageFor(model => model.il, "", new { @class = "text-danger" })
+            </div>
+        </div>
+
+        <div class="form-group">
+            @Html.LabelFor(model => model.ilce, htmlAttributes: new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                <select name="ilce" id="ilceSecimi" class="form-control">
+                    <option value="@Model.ilce" selected>
+                        @db.ilceler.Where(n => n.Id == Model.ilce).FirstOrDefault().ilce_adi
+                    </option>
+                </select>
+
+                @Html.ValidationMessageFor(model => model.ilce, "", new { @class = "text-danger" })
+            </div>
+        </div>
+
+        <div class="form-group">
+            @Html.LabelFor(model => model.semt, htmlAttributes: new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                <select name="semt" id="semtSecimi" class="form-control">
+                    <option value="@Model.semt" selected>@db.semtler.Where(n => n.Id == Model.semt).FirstOrDefault().semt_adi</option>
+                </select>
+                @Html.ValidationMessageFor(model => model.semt, "", new { @class = "text-danger" })
+            </div>
+        </div>
+
+        <div class="form-group">
+            @Html.LabelFor(model => model.metrekare, htmlAttributes: new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                <input class="form-control text-box single-line" data-val="true" data-val-number="The field Metrekare must be a number." data-val-required="Metrekare alanı gereklidir." id="metrekare" name="metrekare" onkeypress="return event.charCode >= 48 &amp;&amp; event.charCode <= 57" value="@Model.metrekare">
+                @Html.ValidationMessageFor(model => model.metrekare, "", new { @class = "text-danger" })
+            </div>
+        </div>
+
+        <div class="form-group">
+            @Html.LabelFor(model => model.fiyat, htmlAttributes: new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                <input class="form-control text-box single-line" data-val="true" data-val-number="The field Fiyat must be a number." data-val-required="Fiyat alanı gereklidir." id="fiyat" name="fiyat" type="text" onkeypress="return event.charCode >= 48 &amp;&amp; event.charCode <= 57" value="@Model.fiyat">
+                @Html.ValidationMessageFor(model => model.fiyat, "", new { @class = "text-danger" })
+            </div>
+        </div>
+
+        <div class="form-group">
+            @Html.LabelFor(model => model.tapuDurumu, htmlAttributes: new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                <select class="form-control" data-val="true" data-val-required="Tapu Durumu alanı gereklidir." id="tapuDurumu" name="tapuDurumu">
+                    <option selected="selected" value="0">ARSA</option>
+                    <option value="1">KAT İRTİFAKI</option>
+                    <option value="2">KAT MULKİYETİ</option>
+                    <option value="3">HİSSELİ TAPU</option>
+                    <option value="4">MUSTAKİL PARSEL</option>
+                    <option value="5">TAHSİS</option>
+                    <option value="6">ZİLLİYET</option>
+                    <option value="7">BİLİNMİYOR</option>
+                </select>
+                @Html.ValidationMessageFor(model => model.tapuDurumu, "", new { @class = "text-danger" })
+            </div>
+        </div>
+
+        <div class="form-group">
+            @Html.LabelFor(model => model.arsaTipi, htmlAttributes: new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                <select class="form-control" data-val="true" data-val-required="Arsa Tipi alanı gereklidir." id="arsaTipi" name="arsaTipi">
+                    @if (Model.arsaTipi == 0)
+                    {
+                        <option value="0" selected>SATILIK</option>
+                        <option value="1">KİRALIK</option>
+                    }
+                    else
+                    {
+                        <option value="0">SATILIK</option>
+                        <option value="1" selected>KİRALIK</option>
+                    }
+
+                </select>
+                @Html.ValidationMessageFor(model => model.arsaTipi, "", new { @class = "text-danger" })
+            </div>
+        </div>
+
+        <div class="form-group">
+            @Html.LabelFor(model => model.parsel, htmlAttributes: new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                @Html.EditorFor(model => model.parsel, new { htmlAttributes = new { @class = "form-control" } })
+                @Html.ValidationMessageFor(model => model.parsel, "", new { @class = "text-danger" })
+            </div>
+        </div>
+
+        <div class="form-group">
+            @Html.LabelFor(model => model.ada, htmlAttributes: new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                @Html.EditorFor(model => model.ada, new { htmlAttributes = new { @class = "form-control" } })
+                @Html.ValidationMessageFor(model => model.ada, "", new { @class = "text-danger" })
+            </div>
+        </div>
+
+        <div class="form-group">
+            @Html.LabelFor(model => model.katKarsiligi, htmlAttributes: new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                <select class="form-control" data-val="true" data-val-required="Kat Karşılığı alanı gereklidir." id="katKarsiligi" name="katKarsiligi">
+                    @if (Model.katKarsiligi == 0)
+                    {
+                        <option selected value="0">UYGUN DEĞİL</option>
+                        <option value="1">UYGUN</option>
+                    }
+                    else
+                    {
+                        <option value="0">UYGUN DEĞİL</option>
+                        <option selected value="1">UYGUN</option>
+                    }
+                </select>
+                @Html.ValidationMessageFor(model => model.katKarsiligi, "", new { @class = "text-danger" })
+            </div>
+        </div>
+
+        <div class="form-group">
+            @Html.LabelFor(model => model.aciklama, htmlAttributes: new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                @Html.EditorFor(model => model.aciklama, new { htmlAttributes = new { @class = "form-control" } })
+                @Html.ValidationMessageFor(model => model.aciklama, "", new { @class = "text-danger" })
+            </div>
+        </div>
+
+        <div class="form-group">
+            <div class="col-md-offset-2 col-md-10">
+                <input type="submit" value="Kaydet" class="btn btn-success" />
+                <a href="~/ilans/edit/@Request.Cookies["i"].Value.ToString()" class="btn btn-success">İptal</a>
+            </div>
+        </div>
+    </div>
+}

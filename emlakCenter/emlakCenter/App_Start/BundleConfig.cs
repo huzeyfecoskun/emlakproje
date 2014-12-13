@@ -8,6 +8,7 @@ namespace emlakCenter
         // For more information on bundling, visit http://go.microsoft.com/fwlink/?LinkId=301862
         public static void RegisterBundles(BundleCollection bundles)
         {
+            bundles.Clear();
             bundles.Add(new ScriptBundle("~/bundles/jquery").Include(
                         "~/Scripts/jquery-{version}.js"));
 
@@ -19,7 +20,11 @@ namespace emlakCenter
             bundles.Add(new ScriptBundle("~/bundles/site").Include(
                         "~/Scripts/site.js"));
             bundles.Add(new ScriptBundle("~/bundles/admin/adjs").Include(
-                        "~/Scripts/adminJS.js"));
+                        "~/Scripts/adminJS.js",
+                        "~/Scripts/uikit/js/uikit.js",
+                        "~/Scripts/uikit/js/components/datepicker.js"
+                        
+                        ));
 
             bundles.Add(new ScriptBundle("~/bundles/date").Include(
                         "~/Scripts/bootstrap-datetimepicker.min.js",
@@ -67,7 +72,9 @@ namespace emlakCenter
                       "~/Content/admin/css/ionicons.min.css"
                       ));
             bundles.Add(new StyleBundle("~/Content/admin/css/AdminLTE").Include(
-                      "~/Content/admin/css/AdminLTE.css"
+                      "~/Content/admin/css/AdminLTE.css",
+                      "~/Scripts/uikit/css/uikit.css",
+                      "~/Scripts/uikit/css/components/datepicker.css"
                       ));
 
             // admin css ----

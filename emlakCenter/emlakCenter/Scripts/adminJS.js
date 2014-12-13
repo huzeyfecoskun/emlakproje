@@ -44,6 +44,14 @@ $(document).ready(
 
     function()
     {
+        var tarih = $("#ilantarihi").val();
+        //tarih = tarih.substring(0, 10);
+        $("#ilantarihi").attr("value", tarih);
+
+        var se = $("#ilceSecimi").find("option");
+        var ils = $("#semtSecimi").find("option");
+
+
         $.get("http://" + url + "/home/getIlce", { id:1 }, function (data) {
             var ilceler = $.parseJSON(data);
             $("#semtSecimi").html("<option selected>Semt Seçiniz</option>");
@@ -52,6 +60,8 @@ $(document).ready(
             for (var i = 0 ; i < ilceler.length ; i++) {
                 $("#ilceSecimi").append("<option value='" + ilceler[i].Id + "'>" + ilceler[i].ilce_adi + "</option>");
             }
+            $("#ilceSecimi").append(se);
+            $("#semtSecimi").append(ils);
         });
 
         $("#ilSecimi").change(function () {

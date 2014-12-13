@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Web;
 using RijndaelEncryptDecrypt;
+using System.Web.Mvc;
 
 namespace emlakCenter.Models
 {
@@ -23,6 +24,18 @@ namespace emlakCenter.Models
             int ilanNumarasi;
             ilanNumarasi = 100;
             return ilanNumarasi;
+        }
+        public static MvcHtmlString tarih(DateTime date)
+        {
+            return MvcHtmlString.Create((date.Year.ToString() + "-" + date.Month.ToString() + "-" + date.Day.ToString()).ToString());
+        }
+
+        public static long UniqueIlan()
+        {
+            long a = 0;
+            string c = DateTime.Now.Year.ToString() + DateTime.Now.Month.ToString() + DateTime.Now.Day.ToString()
+                + DateTime.Now.Minute.ToString() + DateTime.Now.Millisecond.ToString();
+            return long.Parse(c);
         }
     }
 }

@@ -137,8 +137,8 @@ namespace emlakCenter.Controllers
             if(ModelState.IsValid)
             {
                 ilan ilanEkle = new ilan();
-
-                ilanEkle.ilanNo = iln.ilanNo;
+                long ilanNo = Helper.UniqueIlan();
+                ilanEkle.ilanNo = ilanNo;
                 ilanEkle.ilanSahibi = iln.ilanSahibi;
                 ilanEkle.IlanSahibiId = iln.IlanSahibiId;
                 ilanEkle.ilantarihi = DateTime.Now;
@@ -153,7 +153,7 @@ namespace emlakCenter.Controllers
                 ars.hasHarita = false;
                 ars.hasResim = false;
                 ars.hasVideo = false;
-
+                ars.ilanNo = ilanNo;
                 db.arsalar.Add(ars);
                 db.SaveChanges();
 
