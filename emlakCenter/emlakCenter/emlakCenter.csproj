@@ -488,6 +488,7 @@
     <Content Include="Scripts\uikit\fonts\fontawesome-webfont.woff" />
     <Content Include="Scripts\uikit\fonts\FontAwesome.otf" />
     <Content Include="Views\Admin\ArsaDuzenle.cshtml" />
+    <Content Include="Views\ilans\FotografEkle.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

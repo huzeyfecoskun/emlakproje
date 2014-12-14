@@ -61,12 +61,13 @@ namespace emlakCenter.Controllers
             return Redirect("~/Ilans/Edit/" + i);
         }
         [HttpPost]
-        public ActionResult UploadImageMethod()
+        public ActionResult UploadImageMethod(Medya m)
         {
             if (Request.Files.Count != 0)
             {
                 for (int i = 0; i < Request.Files.Count; i++)
                 {
+                    
                     HttpPostedFileBase file = Request.Files[i];
                     int fileSize = file.ContentLength;
                     string fileName = file.FileName;
@@ -75,12 +76,16 @@ namespace emlakCenter.Controllers
                     if ( allowedExtensions.Contains(extention) )
                     {
                         string[] arr = fileName.Split('\\');
-                        fileName = arr[arr.Length - 1];
+                        //fileName = arr[arr.Length - 1];
                         file.SaveAs(Server.MapPath("~/Content/uploads/" + fileName));
-                        //hImage img = new hImage();
-                        //img.imageUrl = fileName;
-                        //_db.images.Add(img);
-                        //_db.SaveChanges();
+
+                        fileName = m.ilanNo + "-" + Models.Helper.UniqueIlan();
+
+                        Medya medya = new Medya();
+                        medya.ilanNo = m.ilanNo;
+                        medya.content = fileName;
+                        db.medyalar.Add(medya);
+                        db.SaveChanges();
                         return Content("Success");
                     }
 

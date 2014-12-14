@@ -6,40 +6,34 @@
 .e-padding{
     padding:10px;
 }
-
 hr {
     margin: 0;
     padding: 0;
     margin-top: 7px;
 }
-
 #e-nav {
     background-color: white;
     position: fixed;
     width: 100%;
     top: 0;
 }
-
 .e-container {
     width: 940px;
     min-height: 80px;
     margin: 0 auto;
     background-color: white;
 }
-
 .e-logo {
     width: 170px;
     float: left;
     padding: 10px;
 }
-
 .e-ara {
     width: 540px;
     float: left;
     padding: 10px 30px;
     line-height: 60px;
 }
-
 .e-iletisim {
     width: 210px;
     float: left;
@@ -48,23 +42,19 @@ hr {
     padding-top: 20px;
     padding-right: 0;
 }
-
 .e-left {
     width: 220px;
     padding: 10px;
     float: left;
 }
-
-    .e-left select {
+.e-left select {
         margin-bottom: 3px;
     }
-
 .e-right {
     width: 720px;
     padding: 10px;
     float: right;
 }
-
 #details{
     width:940px;
     min-height:400px;
@@ -98,7 +88,7 @@ hr {
     height:90px;
     position:relative;
 }
-    #details .aciklama {
+#details .aciklama {
         float: right;
         width: 530px;
         padding: 2px;
@@ -110,41 +100,10 @@ hr {
     padding: 2px;
 
 }
-
-    #details .resim {
-        width: 400px;
-        padding: 2px;
-        min-height: 400px;
-
-        float: left;
-        border-radius: 3px;
-    }
-
-        #details .resim img.ilkResim {
-            width: 394px;
-            border-radius: 3px;
-            margin-bottom: 10px;
-        }
-
-        #details .resim img.kucukResimler {
-            width: 92px;
-            height: 80px;
-            border-radius: 2px;
-            float: left;
-            margin: 3px;
-        }
-
-    #details .aciklama {
-        float: right;
-        width: 530px;
-        padding: 2px;
-    }
-
 .metrekare {
     width: 45%;
     float: left;
 }
-
 .e-ilan {
     display: inline-block;
     width: 210px;
@@ -157,27 +116,23 @@ hr {
     background: #F9F9F9;
     border: 1px solid#CACACA;
 }
-
-    .e-ilan .e-baslik {
-        font-weight: bold;
-        text-align: center;
-        font-size: 12pt;
-    }
-
-    .e-ilan .e-label {
-        font-weight:bold;
-        width: 80px;
-        display: inline-block;
-    }
-
-    .e-ilan .e-aciklama {
-        margin: 0 auto;
-        width: 160px;
-        padding-top: 7px;
-    }
-
-    .e-ilan img {
-        width: 200px;
-        height: 140px;
-        border-radius: 4px;
-    }
+.e-ilan .e-baslik {
+    font-weight: bold;
+    text-align: center;
+    font-size: 12pt;
+}
+.e-ilan .e-label {
+    font-weight:bold;
+    width: 80px;
+    display: inline-block;
+}
+.e-ilan .e-aciklama {
+    margin: 0 auto;
+    width: 160px;
+    padding-top: 7px;
+}
+.e-ilan img {
+    width: 200px;
+    height: 140px;
+    border-radius: 4px;
+}

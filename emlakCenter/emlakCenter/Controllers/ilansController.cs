@@ -108,6 +108,11 @@ namespace emlakCenter.Controllers
             var d = Tuple.Create(iln, ars);
             return View(d);
         }
+
+        public ActionResult FotografEkle(long ilanNo)
+        {
+            return View();
+        }
         public ActionResult IlanIptal()
         {
             if (Request.Cookies["iln"] != null)

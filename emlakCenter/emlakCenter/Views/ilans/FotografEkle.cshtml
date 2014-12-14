@@ -1,0 +1,16 @@
+﻿
+@{
+    ViewBag.Title = "Fotograf Ekle";
+    Layout = "~/Views/Shared/Admin/_Layaut.cshtml";
+}
+
+<form id="galleryID">
+    <input type="hidden" name="ilanNo" value="@Request.Params["ilanNo"]"/>
+    
+    <input id="fileInputType" type="file" onchange="preview(this)" multiple class="fileUpload"
+           style="width:300px;"><br />
+    <p style="color: #0066FF">
+        Gönderebileceğin dosyalar @ViewBag.extensions.
+    </p>
+    <input type="submit" class="btn btn-success" value="Gönder" />
+</form>
