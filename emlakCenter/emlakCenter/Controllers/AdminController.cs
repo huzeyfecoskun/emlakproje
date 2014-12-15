@@ -12,7 +12,7 @@ namespace emlakCenter.Controllers
         private systemDB db = new systemDB();
         protected override void Dispose(bool disposing)
         {
-            if(db != null)
+            if (db != null)
             {
                 db.Dispose();
             }
@@ -41,22 +41,22 @@ namespace emlakCenter.Controllers
         [HttpPost]
         public ActionResult ArsaDuzenle(arsa a)
         {
-  
-                var k = db.arsalar.Where(n => n.ilanNo == a.ilanNo).FirstOrDefault();
-                k.aciklama = a.aciklama;
-                k.ada = a.ada;
-                k.arsaTipi = a.arsaTipi;
-                k.fiyat = a.fiyat;
-                k.il = a.il;
-                k.ilce = a.ilce;
-                k.katKarsiligi = a.katKarsiligi;
-                k.metrekare = a.metrekare;
-                k.parsel = a.parsel;
-                k.semt = a.semt;
-                k.tapuDurumu = a.tapuDurumu;
 
-                db.SaveChanges();
-            
+            var k = db.arsalar.Where(n => n.ilanNo == a.ilanNo).FirstOrDefault();
+            k.aciklama = a.aciklama;
+            k.ada = a.ada;
+            k.arsaTipi = a.arsaTipi;
+            k.fiyat = a.fiyat;
+            k.il = a.il;
+            k.ilce = a.ilce;
+            k.katKarsiligi = a.katKarsiligi;
+            k.metrekare = a.metrekare;
+            k.parsel = a.parsel;
+            k.semt = a.semt;
+            k.tapuDurumu = a.tapuDurumu;
+
+            db.SaveChanges();
+
             var i = Request.Cookies["i"].Value;
             return Redirect("~/Ilans/Edit/" + i);
         }
@@ -67,30 +67,24 @@ namespace emlakCenter.Controllers
             {
                 for (int i = 0; i < Request.Files.Count; i++)
                 {
-                    
                     HttpPostedFileBase file = Request.Files[i];
                     int fileSize = file.ContentLength;
                     string fileName = file.FileName;
                     string[] ext = fileName.Split('.');
                     string extention = ext[ext.Length - 1].ToLower();
-                    if ( allowedExtensions.Contains(extention) )
+                    if (allowedExtensions.Contains(extention))
                     {
                         string[] arr = fileName.Split('\\');
-                        //fileName = arr[arr.Length - 1];
-                        file.SaveAs(Server.MapPath("~/Content/uploads/" + fileName));
-
                         fileName = m.ilanNo + "-" + Models.Helper.UniqueIlan();
-
+                        file.SaveAs(Server.MapPath("~/Content/uploads/" + fileName + "." + extention));
                         Medya medya = new Medya();
                         medya.ilanNo = m.ilanNo;
-                        medya.content = fileName;
+                        medya.content = "Content/uploads/" + fileName + "." + extention;
                         db.medyalar.Add(medya);
                         db.SaveChanges();
-                        return Content("Success");
                     }
-
                 }
-                
+                return Content("Success");
             }
             return Content("failed");
         }

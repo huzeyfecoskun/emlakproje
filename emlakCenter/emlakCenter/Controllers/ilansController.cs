@@ -167,9 +167,10 @@ namespace emlakCenter.Controllers
                 Response.SetCookie(c);
 
                 HttpCookie c2 = new HttpCookie("iln");
-                c.Expires = DateTime.Now.AddDays(-1);
+                c2.Expires = DateTime.Now.AddDays(-1);
                 Response.SetCookie(c2);
-                
+
+                ViewBag.ilanNo = ilanNo.ToString();
             }
             
             return View();
