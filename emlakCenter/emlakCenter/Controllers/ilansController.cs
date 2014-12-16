@@ -113,6 +113,47 @@ namespace emlakCenter.Controllers
         {
             return View();
         }
+
+        [HttpGet]
+        public ActionResult haritaEkle(long? ilanNo)
+        {
+            if(ilanNo == null)
+            {
+                return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
+            }
+            return View();
+        }
+        [HttpPost]
+        public ActionResult haritaEkle(Medya m)
+        {
+            Medya medya = new Medya();
+            medya.tip = MedyaTipi.HARITA;
+            medya.ilanNo = m.ilanNo;
+            medya.content = m.content;
+            db.medyalar.Add(medya);
+            db.SaveChanges();
+            return View();
+        }
+        [HttpGet]
+        public ActionResult videoEkle(long? ilanNo)
+        {
+            if (ilanNo == null)
+            {
+                return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
+            }
+            return View();
+        }
+        [HttpPost]
+        public ActionResult videoEkle(Medya m)
+        {
+            Medya medya = new Medya();
+            medya.tip = MedyaTipi.VIDEO;
+            medya.ilanNo = m.ilanNo;
+            medya.content = m.content;
+            db.medyalar.Add(medya);
+            db.SaveChanges();
+            return View();
+        }
         public ActionResult IlanIptal()
         {
             if (Request.Cookies["iln"] != null)

@@ -489,6 +489,8 @@
     <Content Include="Scripts\uikit\fonts\FontAwesome.otf" />
     <Content Include="Views\Admin\ArsaDuzenle.cshtml" />
     <Content Include="Views\ilans\FotografEkle.cshtml" />
+    <Content Include="Views\ilans\haritaEkle.cshtml" />
+    <Content Include="Views\ilans\videoEkle.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
