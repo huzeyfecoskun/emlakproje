@@ -82,9 +82,17 @@ namespace emlakCenter.Controllers
                         medya.content = "Content/uploads/" + fileName + "." + extention;
                         db.medyalar.Add(medya);
                         db.SaveChanges();
+
+
+                        // hasResim true yapamadım
+                        //var x = db.arsalar.Where(n => n.ilanNo == medya.ilanNo).FirstOrDefault();
+                        //x.hasResim = true;
+                        //db.arsalar.Add(x);
+                        //db.SaveChanges();
+                        return Content("Success");
                     }
                 }
-                return Content("Success");
+                
             }
             return Content("failed");
         }

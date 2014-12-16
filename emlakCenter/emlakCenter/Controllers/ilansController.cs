@@ -230,6 +230,7 @@ namespace emlakCenter.Controllers
             ilan ilan = await db.ilanlar.FindAsync(id);
             db.ilanlar.Remove(ilan);
             await db.SaveChangesAsync();
+            // ilgili arsayı sil
             return RedirectToAction("Index");
         }
 
