@@ -65,6 +65,11 @@ namespace emlakCenter.Controllers
         {
             if (Request.Files.Count != 0)
             {
+                string ilanNumarasi = Request.Cookies["foto"].Value;
+                long ilanNo = long.Parse(ilanNumarasi);
+                HttpCookie c = new HttpCookie("foto");
+                c.Expires = DateTime.Now.AddDays(-1d);
+                Response.SetCookie(c);
                 for (int i = 0; i < Request.Files.Count; i++)
                 {
                     HttpPostedFileBase file = Request.Files[i];
@@ -78,15 +83,14 @@ namespace emlakCenter.Controllers
                         fileName = m.ilanNo + "-" + Models.Helper.UniqueIlan();
                         file.SaveAs(Server.MapPath("~/Content/uploads/" + fileName + "." + extention));
                         Medya medya = new Medya();
-                        medya.ilanNo = m.ilanNo;
+                        medya.ilanNo = ilanNo;
                         medya.content = "Content/uploads/" + fileName + "." + extention;
                         db.medyalar.Add(medya);
                     }
-                // m.ilanNo   boş geliyor
                 }
-                //arsa arsaEkle = db.arsalar.Where(n => n.ilanNo == m.ilanNo).FirstOrDefault();
-                //arsaEkle.hasResim = true;
-                //db.Entry(arsaEkle).State = EntityState.Modified;
+                arsa arsaEkle = db.arsalar.Where(n => n.ilanNo == ilanNo).FirstOrDefault();
+                arsaEkle.hasResim = true;
+                db.Entry(arsaEkle).State = EntityState.Modified;
                 db.SaveChanges();
                 return Content("Success");   
             }

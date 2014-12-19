@@ -111,6 +111,9 @@ namespace emlakCenter.Controllers
 
         public ActionResult FotografEkle(long ilanNo)
         {
+            HttpCookie c = new HttpCookie("foto");
+            c.Value = ilanNo.ToString();
+            Response.SetCookie(c);
             IEnumerable<Medya> m = db.medyalar.Where(n => n.ilanNo == ilanNo).Where(x => x.tip == 0);
             return View(m);
         }
@@ -137,7 +140,8 @@ namespace emlakCenter.Controllers
             {
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
             }
-            return View();
+            IEnumerable<Medya> m = db.medyalar.Where(n => n.ilanNo == ilanNo).Where(x => x.tip == MedyaTipi.HARITA).ToList();
+            return View(m);
         }
         [HttpPost]
         public ActionResult haritaEkle(Medya m)
