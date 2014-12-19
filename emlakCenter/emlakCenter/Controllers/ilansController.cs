@@ -111,7 +111,23 @@ namespace emlakCenter.Controllers
 
         public ActionResult FotografEkle(long ilanNo)
         {
-            return View();
+            IEnumerable<Medya> m = db.medyalar.Where(n => n.ilanNo == ilanNo).Where(x => x.tip == 0);
+            return View(m);
+        }
+
+        public ActionResult fotografSil(long id)
+        {
+            Medya m = db.medyalar.Where(n => n.id == id).FirstOrDefault();
+            if(m != null)
+            {
+                db.medyalar.Remove(m);
+                db.SaveChanges();
+            }
+            else
+            {
+                return Content("Bir hata meydana geldi");
+            }
+            return RedirectToAction("index", "ilans");
         }
 
         [HttpGet]
@@ -132,7 +148,7 @@ namespace emlakCenter.Controllers
             medya.content = m.content;
             db.medyalar.Add(medya);
             db.SaveChanges();
-            return View();
+            return RedirectToAction("index", "ilans");
         }
         [HttpGet]
         public ActionResult videoEkle(long? ilanNo)
@@ -152,7 +168,7 @@ namespace emlakCenter.Controllers
             medya.content = m.content;
             db.medyalar.Add(medya);
             db.SaveChanges();
-            return View();
+            return RedirectToAction("index", "ilans");
         }
         public ActionResult IlanIptal()
         {
@@ -269,9 +285,10 @@ namespace emlakCenter.Controllers
         public async Task<ActionResult> DeleteConfirmed(long id)
         {
             ilan ilan = await db.ilanlar.FindAsync(id);
+            arsa arsa = db.arsalar.Where(n => n.ilanNo == ilan.ilanNo).FirstOrDefault();
             db.ilanlar.Remove(ilan);
+            db.arsalar.Remove(arsa);
             await db.SaveChangesAsync();
-            // ilgili arsayı sil
             return RedirectToAction("Index");
         }
 

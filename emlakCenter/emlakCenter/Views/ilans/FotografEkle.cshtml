@@ -1,4 +1,5 @@
-﻿@{
+﻿@model IEnumerable<emlakCenter.Models.Medya>
+@{
     ViewBag.Title = "Fotograf Ekle";
     Layout = "~/Views/Shared/Admin/_Layaut.cshtml";
 }
@@ -13,3 +14,18 @@
     </p>
     <input type="submit" class="btn btn-success" value="Gönder" />
 </form>
+
+<br />
+
+@foreach(var item in Model)
+{
+    <div class="box-body">
+        <div class="table-bordered">
+            <a href="~/ilans/fotografSil/@item.id" class="btn btn-danger">
+                Bu Fotoğrafı Sil
+            </a>
+            <img src="~/@item.content" />
+        </div>
+    </div>
+    
+}

@@ -32,7 +32,6 @@ namespace emlakCenter.Models
 
         public static long UniqueIlan()
         {
-            long a = 0;
             string c = DateTime.Now.Year.ToString() + DateTime.Now.Month.ToString() + DateTime.Now.Day.ToString()
                 + DateTime.Now.Minute.ToString() + DateTime.Now.Millisecond.ToString();
             return long.Parse(c);
