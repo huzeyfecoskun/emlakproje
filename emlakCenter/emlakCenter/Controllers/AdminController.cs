@@ -80,11 +80,13 @@ namespace emlakCenter.Controllers
                     if (allowedExtensions.Contains(extention))
                     {
                         string[] arr = fileName.Split('\\');
-                        fileName = m.ilanNo + "-" + Models.Helper.UniqueIlan();
-                        file.SaveAs(Server.MapPath("~/Content/uploads/" + fileName + "." + extention));
+                        fileName = Models.Helper.UniqueIlan().ToString();
+                        var path = Server.MapPath("~/Content/uploads/" + ilanNo.ToString());
+                        System.IO.Directory.CreateDirectory(path);
+                        file.SaveAs(Server.MapPath("~/Content/uploads/" + ilanNo.ToString() + "/" + fileName + "." + extention));
                         Medya medya = new Medya();
                         medya.ilanNo = ilanNo;
-                        medya.content = "Content/uploads/" + fileName + "." + extention;
+                        medya.content = "Content/uploads/" + ilanNo.ToString() + "/" + fileName + "." + extention;
                         db.medyalar.Add(medya);
                     }
                 }

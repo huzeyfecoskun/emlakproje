@@ -121,7 +121,32 @@ namespace emlakCenter.Controllers
         public ActionResult fotografSil(long id)
         {
             Medya m = db.medyalar.Where(n => n.id == id).FirstOrDefault();
+            var ilanNo = m.ilanNo;
             if(m != null)
+            {
+                db.medyalar.Remove(m);
+                db.SaveChanges();
+                string filePath = Server.MapPath("~/" + m.content);
+                if(System.IO.File.Exists(filePath))
+                {
+                    System.IO.File.Delete(filePath);
+                    //if(System.IO.Directory.EnumerateFiles(filePath).Count() == 0)
+                    //{
+                    //    System.IO.Directory.Delete(filePath);
+                    //}
+                }
+            }
+            else
+            {
+                return Content("Bir hata meydana geldi");
+            }
+            return Redirect("~/ilans/fotografEkle/?ilanNo=" + ilanNo.ToString());
+        }
+        public ActionResult haritaSil(long id)
+        {
+            Medya m = db.medyalar.Where(n => n.id == id).FirstOrDefault();
+            var ilanNo = m.ilanNo;
+            if (m != null)
             {
                 db.medyalar.Remove(m);
                 db.SaveChanges();
@@ -130,7 +155,22 @@ namespace emlakCenter.Controllers
             {
                 return Content("Bir hata meydana geldi");
             }
-            return RedirectToAction("index", "ilans");
+            return Redirect("~/ilans/haritaEkle/?ilanNo=" + ilanNo.ToString());
+        }
+        public ActionResult videoSil(long id)
+        {
+            Medya m = db.medyalar.Where(n => n.id == id).FirstOrDefault();
+            var ilanNo = m.ilanNo;
+            if (m != null)
+            {
+                db.medyalar.Remove(m);
+                db.SaveChanges();
+            }
+            else
+            {
+                return Content("Bir hata meydana geldi");
+            }
+            return Redirect("~/ilans/videoEkle/?ilanNo=" + ilanNo.ToString());
         }
 
         [HttpGet]
@@ -152,7 +192,9 @@ namespace emlakCenter.Controllers
             medya.content = m.content;
             db.medyalar.Add(medya);
             db.SaveChanges();
-            return RedirectToAction("index", "ilans");
+
+            var ilanNo = m.ilanNo;
+            return Redirect("~/ilans/haritaEkle/?ilanNo=" + ilanNo.ToString());
         }
         [HttpGet]
         public ActionResult videoEkle(long? ilanNo)
@@ -161,7 +203,8 @@ namespace emlakCenter.Controllers
             {
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
             }
-            return View();
+            IEnumerable<Medya> video = db.medyalar.Where(n => n.ilanNo == ilanNo).ToList();
+            return View(video);
         }
         [HttpPost]
         public ActionResult videoEkle(Medya m)
@@ -172,7 +215,8 @@ namespace emlakCenter.Controllers
             medya.content = m.content;
             db.medyalar.Add(medya);
             db.SaveChanges();
-            return RedirectToAction("index", "ilans");
+            var ilanNo = m.ilanNo;
+            return Redirect("~/ilans/videoEkle/?ilanNo=" + ilanNo.ToString());
         }
         public ActionResult IlanIptal()
         {
