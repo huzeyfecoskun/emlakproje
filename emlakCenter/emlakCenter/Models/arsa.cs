@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
 using System.Linq;
 using System.Web;
+using System.Web.Mvc;
 
 namespace emlakCenter.Models
 {
@@ -120,6 +121,8 @@ namespace emlakCenter.Models
     {
         public long id { get; set; }
         public long ilanNo { get; set; }
+
+        [UIHint("tinymce_jquery_full"), AllowHtml]
         public string content { get; set; }
         public MedyaTipi tip { get; set; }
     }

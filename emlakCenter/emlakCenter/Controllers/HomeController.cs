@@ -61,7 +61,8 @@ namespace emlakCenter.Controllers
         public ActionResult GetSearchResults(QueryModel query)
         {
             // TODO: query ye göre arama yapılacak ve sonuçlar json olarak döndürülecek
-            var results = _db.arsalar.ToList();
+            var results = _db.arsalar.ToList()
+                .Where(n => n.il == query.il);
             return PartialView("GetSearchResults",results);
         }
 

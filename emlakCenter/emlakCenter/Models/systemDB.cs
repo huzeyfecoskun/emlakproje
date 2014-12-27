@@ -20,5 +20,6 @@ namespace emlakCenter.Models
         public DbSet<ilan> ilanlar { get; set; }
         public DbSet<tapuDurumu> tapuDurumlari { get; set; }
         public DbSet<ilanSahibi> ilanSahipleri { get; set; }
+        public DbSet<admin> adminler { get; set; }
     }
 }

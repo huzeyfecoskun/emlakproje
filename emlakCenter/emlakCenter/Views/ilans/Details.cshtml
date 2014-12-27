@@ -1,24 +1,12 @@
-﻿@model emlakCenter.Models.ilan
+﻿@model emlakCenter.Models.arsa
 
 @{
-    ViewBag.Title = "Details";
+    ViewBag.Title = "Arsa Bilgileri";
     Layout = "~/Views/Shared/Admin/_Layaut.cshtml";
 }
 
-<h2>Details</h2>
-
 <div>
-    <h4>ilan</h4>
-    <hr />
     <dl class="dl-horizontal">
-        <dt>
-            @Html.DisplayNameFor(model => model.tip)
-        </dt>
-
-        <dd>
-            @Html.DisplayFor(model => model.tip)
-        </dd>
-
         <dt>
             @Html.DisplayNameFor(model => model.ilanNo)
         </dt>
@@ -28,40 +16,128 @@
         </dd>
 
         <dt>
-            @Html.DisplayNameFor(model => model.ilantarihi)
+            @Html.DisplayNameFor(model => model.il)
         </dt>
 
         <dd>
-            @Html.DisplayFor(model => model.ilantarihi)
+            @Html.DisplayFor(model => model.il)
         </dd>
 
         <dt>
-            @Html.DisplayNameFor(model => model.ilanSahibi)
+            @Html.DisplayNameFor(model => model.ilce)
         </dt>
 
         <dd>
-            @Html.DisplayFor(model => model.ilanSahibi)
+            @Html.DisplayFor(model => model.ilce)
         </dd>
 
         <dt>
-            @Html.DisplayNameFor(model => model.takasDurum)
+            @Html.DisplayNameFor(model => model.semt)
         </dt>
 
         <dd>
-            @Html.DisplayFor(model => model.takasDurum)
+            @Html.DisplayFor(model => model.semt)
         </dd>
 
         <dt>
-            @Html.DisplayNameFor(model => model.krediyeUygunluk)
+            @Html.DisplayNameFor(model => model.metrekare)
         </dt>
 
         <dd>
-            @Html.DisplayFor(model => model.krediyeUygunluk)
+            @Html.DisplayFor(model => model.metrekare)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.fiyat)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.fiyat)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.tapuDurumu)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.tapuDurumu)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.arsaTipi)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.arsaTipi)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.parsel)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.parsel)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.ada)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.ada)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.katKarsiligi)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.katKarsiligi)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.aciklama)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.aciklama)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.ilanNumarasi)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.ilanNumarasi)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.hasResim)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.hasResim)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.hasHarita)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.hasHarita)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.hasVideo)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.hasVideo)
         </dd>
 
     </dl>
 </div>
 <p>
-    @Html.ActionLink("Edit", "Edit", new { id = Model.id }) |
+    @Html.ActionLink("Edit", "Edit", new { id = Model.Id }) |
     @Html.ActionLink("Back to List", "Index")
 </p>

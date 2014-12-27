@@ -26,17 +26,17 @@
             </div>
             <div id="collapseOne" class="panel-collapse collapse in" role="tabpanel" aria-labelledby="headingOne">
                 <div class="panel-body">
-                    <select id="ilSecimi" class="form-control">
+                    <select id="ilSecimi" name="il" class="form-control">
                         <option>İl Seçiniz</option>
-                        @foreach(var item in il)
+                        @foreach (var item in il)
                         {
                             <option value="@item.Id">@item.il_adi</option>
                         }
                     </select>
-                    <select id="ilceSecimi" class="form-control">
+                    <select id="ilceSecimi" name="ilce" class="form-control">
                         <option>İlçe Seçiniz</option>
                     </select>
-                    <select id="semtSecimi" class="form-control">
+                    <select id="semtSecimi" name="semt" class="form-control">
                         <option>Semt Seçiniz</option>
                     </select>
                 </div>

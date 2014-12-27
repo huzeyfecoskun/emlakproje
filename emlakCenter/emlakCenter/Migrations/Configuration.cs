@@ -48,6 +48,11 @@ namespace emlakCenter.Migrations
             ilan1.tip = ilanTipi.ARSA;
 
             context.ilanlar.AddOrUpdate(p => p.ilanNo, ilan1);
+
+            admin adm = new admin();
+            adm.username = "admin";
+            adm.password = "12345";
+            context.adminler.AddOrUpdate(n => n.username, adm);
         }
     }
 }

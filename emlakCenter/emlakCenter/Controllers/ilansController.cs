@@ -9,9 +9,12 @@ using System.Web;
 using System.Web.Mvc;
 using emlakCenter.Models;
 using Newtonsoft.Json;
+using System.Data.Entity.Migrations;
 
 namespace emlakCenter.Controllers
 {
+
+    [Authorize]
     public class ilansController : Controller
     {
         private systemDB db = new systemDB();
@@ -23,18 +26,20 @@ namespace emlakCenter.Controllers
         }
 
         // GET: ilans/Details/5
-        public async Task<ActionResult> Details(long? id)
+        public ActionResult Details(long? id)
         {
             if (id == null)
             {
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
             }
-            ilan ilan = await db.ilanlar.FindAsync(id);
+            ilan ilan = db.ilanlar.Where(n => n.id == id).FirstOrDefault();
             if (ilan == null)
             {
                 return HttpNotFound();
             }
-            return View(ilan);
+            var ilanNo = ilan.ilanNo;
+            arsa ars = db.arsalar.Where(n => n.ilanNo == ilanNo).FirstOrDefault();
+            return View(ars);
         }
 
         // GET: ilans/Create
@@ -118,9 +123,15 @@ namespace emlakCenter.Controllers
             return View(m);
         }
 
-        public ActionResult fotografSil(long id)
+        public async Task<ActionResult> fotografSil(long id)
         {
             Medya m = db.medyalar.Where(n => n.id == id).FirstOrDefault();
+            var b = db.medyalar.Where(n => n.tip == MedyaTipi.RESIM).ToList();
+            var ars1 = db.arsalar.Where(n => n.ilanNo == m.ilanNo).FirstOrDefault();
+            if(b.Count == 1)
+            {
+                ars1.hasResim = false;
+            }
             var ilanNo = m.ilanNo;
             if(m != null)
             {
@@ -140,8 +151,14 @@ namespace emlakCenter.Controllers
             {
                 return Content("Bir hata meydana geldi");
             }
+            if(b.Count == 1)
+            {
+                System.IO.File.Delete(Server.MapPath("~/Content/Uploads/" + m.ilanNo+"/Thumbs.db"));
+                System.IO.Directory.Delete(Server.MapPath("~/Content/Uploads/" + m.ilanNo));
+            }
             return Redirect("~/ilans/fotografEkle/?ilanNo=" + ilanNo.ToString());
         }
+
         public ActionResult haritaSil(long id)
         {
             Medya m = db.medyalar.Where(n => n.id == id).FirstOrDefault();
@@ -190,7 +207,7 @@ namespace emlakCenter.Controllers
             medya.tip = MedyaTipi.HARITA;
             medya.ilanNo = m.ilanNo;
             medya.content = m.content;
-            db.medyalar.Add(medya);
+            db.medyalar.AddOrUpdate(n => n.tip, medya);
             db.SaveChanges();
 
             var ilanNo = m.ilanNo;
@@ -203,7 +220,7 @@ namespace emlakCenter.Controllers
             {
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
             }
-            IEnumerable<Medya> video = db.medyalar.Where(n => n.ilanNo == ilanNo).ToList();
+            IEnumerable<Medya> video = db.medyalar.Where(n => n.ilanNo == ilanNo && n.tip == MedyaTipi.VIDEO).ToList();
             return View(video);
         }
         [HttpPost]
@@ -213,7 +230,7 @@ namespace emlakCenter.Controllers
             medya.tip = MedyaTipi.VIDEO;
             medya.ilanNo = m.ilanNo;
             medya.content = m.content;
-            db.medyalar.Add(medya);
+            db.medyalar.AddOrUpdate(n => n.tip, medya);
             db.SaveChanges();
             var ilanNo = m.ilanNo;
             return Redirect("~/ilans/videoEkle/?ilanNo=" + ilanNo.ToString());
@@ -332,11 +349,26 @@ namespace emlakCenter.Controllers
         [ValidateAntiForgeryToken]
         public async Task<ActionResult> DeleteConfirmed(long id)
         {
+            
             ilan ilan = await db.ilanlar.FindAsync(id);
+            var medya = db.medyalar.Where(n => n.ilanNo == ilan.ilanNo).ToList();
+            db.medyalar.RemoveRange(medya);
             arsa arsa = db.arsalar.Where(n => n.ilanNo == ilan.ilanNo).FirstOrDefault();
             db.ilanlar.Remove(ilan);
             db.arsalar.Remove(arsa);
             await db.SaveChangesAsync();
+
+            var ilanNo = ilan.ilanNo;
+            if(System.IO.Directory.Exists(Server.MapPath("~/Content/Uploads/" + ilanNo)))
+            {
+                var dirs = System.IO.Directory.GetFiles(Server.MapPath("~/Content/Uploads/" + ilanNo));
+                foreach(var items in dirs)
+                {
+                    System.IO.File.Delete(items);
+                }
+                System.IO.Directory.Delete(Server.MapPath("~/Content/Uploads/" + ilanNo));
+                return RedirectToAction("index");
+            }
             return RedirectToAction("Index");
         }
 

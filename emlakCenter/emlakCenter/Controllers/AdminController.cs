@@ -5,8 +5,10 @@ using System.Web;
 using System.Web.Mvc;
 using emlakCenter.Models;
 using System.Data.Entity;
+using System.Web.Security;
 namespace emlakCenter.Controllers
 {
+
     public class AdminController : Controller
     {
         private systemDB db = new systemDB();
@@ -19,17 +21,40 @@ namespace emlakCenter.Controllers
             base.Dispose(disposing);
         }
         private String[] allowedExtensions = { "jpg", "png", "gif" };
+
+        [Authorize]
         public ActionResult Index()
         {
             ViewBag.extensions = String.Join(", ", allowedExtensions).ToUpperInvariant(); // GIF instead of GİF
             return View();
         }
 
+        [HttpGet]
         public ActionResult Login()
         {
             return View();
         }
+        [HttpPost]
+        public ActionResult Login(string userid, string password)
+        {
 
+            var adm = db.adminler.Where(n => n.password == password && n.username == userid).FirstOrDefault();
+            if(adm != null)
+            {
+                FormsAuthentication.SetAuthCookie(userid, false);
+                return RedirectToAction("index");
+            }
+            return View();
+        }
+
+
+        public ActionResult Logout()
+        {
+            FormsAuthentication.SignOut();
+            return RedirectToAction("login");
+        }
+
+        [Authorize]
         public ActionResult ArsaDuzenle(long id, int i)
         {
             var arsa = db.arsalar.Where(n => n.ilanNo == id).FirstOrDefault();
@@ -39,6 +64,7 @@ namespace emlakCenter.Controllers
             return View(arsa);
         }
         [HttpPost]
+        [Authorize]
         public ActionResult ArsaDuzenle(arsa a)
         {
 
@@ -61,6 +87,7 @@ namespace emlakCenter.Controllers
             return Redirect("~/Ilans/Edit/" + i);
         }
         [HttpPost]
+        [Authorize]
         public ActionResult UploadImageMethod(Medya m)
         {
             if (Request.Files.Count != 0)

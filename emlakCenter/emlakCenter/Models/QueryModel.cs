@@ -10,8 +10,10 @@ namespace emlakCenter.Models
 {
     public class QueryModel
     {
-        public String semtID { get; set; }
-
+        public int il { get; set; }
+        public int ilce { get; set; }
+        public int semt { get; set; }
+        
         public String metrekareStart { get; set; }
         public String metrekareEnd { get; set; }
 
@@ -23,7 +25,7 @@ namespace emlakCenter.Models
         public bool harita { get; set; }
 
         public String tarih { get; set; }
-
+        public int tapuDurum { get; set; }
         public String keyword { get; set; }
 
     }
