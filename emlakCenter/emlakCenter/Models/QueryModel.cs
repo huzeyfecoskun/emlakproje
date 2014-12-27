@@ -14,11 +14,11 @@ namespace emlakCenter.Models
         public int ilce { get; set; }
         public int semt { get; set; }
         
-        public String metrekareStart { get; set; }
-        public String metrekareEnd { get; set; }
+        public int metrekareStart { get; set; }
+        public int metrekareEnd { get; set; }
 
-        public String fiyatStart { get; set; }
-        public String fiyatEnd { get; set; }
+        public int fiyatStart { get; set; }
+        public int fiyatEnd { get; set; }
 
         public bool resim { get; set; }
         public bool video { get; set; }

@@ -61,8 +61,50 @@ namespace emlakCenter.Controllers
         public ActionResult GetSearchResults(QueryModel query)
         {
             // TODO: query ye göre arama yapılacak ve sonuçlar json olarak döndürülecek
-            var results = _db.arsalar.ToList()
-                .Where(n => n.il == query.il);
+
+            var results = _db.arsalar.ToList();
+            if(query.fiyatStart == 0 && query.fiyatEnd == 0)
+            {
+                results = results.Where(n => n.fiyat < query.fiyatEnd && n.fiyat > query.fiyatStart).ToList();
+            }
+            if(query.metrekareStart != 0 && query.metrekareEnd != 0)
+            {
+                results = results.Where(n => n.metrekare < query.metrekareEnd && n.metrekare > query.metrekareStart).ToList();
+            }
+            if(query.il != 0)
+            {
+                results = results.Where(n => n.il == query.il).ToList();
+            }
+            if (query.ilce != 0)
+            {
+                results = results.Where(n => n.ilce == query.ilce).ToList();
+            }
+            if (query.semt != 0)
+            {
+                results = results.Where(n => n.semt == query.semt).ToList();
+            }
+            if (query.tarih != "")
+            {
+               // tarih iptal
+            }
+            if(query.video)
+            {
+                results = results.Where(n => n.hasVideo == query.video).ToList();
+            }
+            if (query.resim)
+            {
+                results = results.Where(n => n.hasResim == query.resim).ToList();
+            }
+            if (query.harita)
+            {
+                results = results.Where(n => n.hasHarita == query.harita).ToList();
+            }
+            if(query.keyword != "")
+            {
+                // Bura biraz karışık
+            }
+            
+
             return PartialView("GetSearchResults",results);
         }
 
