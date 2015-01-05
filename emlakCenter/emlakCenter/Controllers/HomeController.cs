@@ -63,7 +63,7 @@ namespace emlakCenter.Controllers
             // TODO: query ye göre arama yapılacak ve sonuçlar json olarak döndürülecek
 
             var results = _db.arsalar.ToList();
-            if(query.fiyatStart == 0 && query.fiyatEnd == 0)
+            if(query.fiyatStart != 0 && query.fiyatEnd != 0)
             {
                 results = results.Where(n => n.fiyat < query.fiyatEnd && n.fiyat > query.fiyatStart).ToList();
             }
@@ -82,10 +82,6 @@ namespace emlakCenter.Controllers
             if (query.semt != 0)
             {
                 results = results.Where(n => n.semt == query.semt).ToList();
-            }
-            if (query.tarih != "")
-            {
-               // tarih iptal
             }
             if(query.video)
             {
@@ -108,7 +104,7 @@ namespace emlakCenter.Controllers
             return PartialView("GetSearchResults",results);
         }
 
-        public ActionResult Ilan(int? id)
+        public ActionResult Ilan(long? id)
         {
             if (id == null)
             {
